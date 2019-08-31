@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#FFFFFF">
+
+        <com.google.android.material.appbar.AppBarLayout
+                android:id="@+id/appBar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:theme="@style/ThemeOverlay.AppCompat.ActionBar">
+
+            <androidx.appcompat.widget.Toolbar
+                    android:id="@+id/toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    android:background="?android:attr/colorPrimary"
+                    android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+                    tools:targetApi="lollipop" />
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+
+        <androidx.core.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fillViewport="true"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <androidx.viewpager.widget.ViewPager
+                    android:id="@+id/viewPager"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+        </androidx.core.widget.NestedScrollView>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+</layout>

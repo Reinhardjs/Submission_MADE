@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="10"
+        android:padding="15dp">
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="8">
+
+        <ImageView
+                android:id="@+id/movieImage"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:adjustViewBounds="true"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:padding="5dp"
+            android:orientation="vertical">
+
+        <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#000000"
+                android:textStyle="bold"
+                android:text="Title"/>
+
+        <TextView
+                android:id="@+id/overview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#000000"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:text="Overview"/>
+
+        <TextView
+                android:id="@+id/releaseDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#000000"
+                android:text="Release Date"/>
+
+    </LinearLayout>
+
+</LinearLayout>
