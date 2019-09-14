@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Submission_MADE</string>
+    <string name="trailer_3">Cuplikan 3</string>
+    <string name="trailer_2">Cuplikan 2</string>
+    <string name="trailer_1">Cuplikan 1</string>
+    <string name="trailers">Cuplikan</string>
+    <string name="overview">Gambaran</string>
+    <string name="reviews">Ulasan</string>
+    <string name="review_1">Ulasan 1</string>
+    <string name="review_2">Ulasan 2</string>
+    <string name="review_3">Ulasan 3</string>
+    <string name="change_language_settings">Pengaturan Bahasa</string>
+    <string name="toolbar_title">Daftar Film</string>
+    <string name="movies">Film</string>
+    <string name="tv_shows">Serial TV</string>
+    <string name="data_load_success">Data berhasil diload!</string>
+</resources>

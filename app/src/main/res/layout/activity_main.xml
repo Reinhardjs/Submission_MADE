@@ -22,6 +22,16 @@
                     android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
                     tools:targetApi="lollipop" />
 
+            <com.google.android.material.tabs.TabLayout
+                    android:id="@+id/tabLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="?colorPrimary"
+                    app:tabIndicatorColor="?colorAccent"
+                    app:tabMode="fixed"
+                    app:tabSelectedTextColor="@android:color/white"
+                    app:tabTextColor="#ddd"/>
+
         </com.google.android.material.appbar.AppBarLayout>
 
 

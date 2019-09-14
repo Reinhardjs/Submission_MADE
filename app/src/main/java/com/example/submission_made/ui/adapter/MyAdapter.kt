@@ -4,21 +4,21 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
-import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.ViewCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.example.submission_made.R
-import com.example.submission_made.data.pojo.MovieData
+import com.example.submission_made.data.entity.MovieEntity
 import com.example.submission_made.ui.base.BaseAdapter
 import com.example.submission_made.ui.callbacks.ListCallback
 import com.squareup.picasso.Picasso
 
-class MyAdapter(var listCallback: ListCallback) : BaseAdapter<MyAdapter.ViewHolder, MovieData>() {
+class MyAdapter(var listCallback: ListCallback) : BaseAdapter<MyAdapter.ViewHolder, MovieEntity>() {
 
-    private var dataList = ArrayList<MovieData>()
+    private var dataList = ArrayList<MovieEntity>()
 
-    override fun setData(data: ArrayList<MovieData>) {
+    override fun setData(data: ArrayList<MovieEntity>) {
         dataList = data
         notifyDataSetChanged()
     }
@@ -60,7 +60,7 @@ class MyAdapter(var listCallback: ListCallback) : BaseAdapter<MyAdapter.ViewHold
     }
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        var container: LinearLayout
+        var container: ConstraintLayout
         var mImageView: ImageView
         var title: TextView
         var overview: TextView

@@ -12,8 +12,7 @@
 
     </data>
 
-
-    <RelativeLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
@@ -24,7 +23,11 @@
                 android:layout_centerHorizontal="true"
                 android:indeterminateTint="@color/colorPrimary"
                 android:indeterminateTintMode="src_in"
-                android:visibility="visible" />
+                android:visibility="visible"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/recyclerView" android:layout_marginTop="10dp"
+                tools:targetApi="lollipop"/>
 
         <TextView
                 android:id="@+id/errorText"
@@ -32,17 +35,21 @@
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 android:textSize="16sp"
-                android:textStyle="bold" />
+                android:textStyle="bold" android:layout_marginTop="8dp"
+                app:layout_constraintTop_toTopOf="@+id/loginProgress" app:layout_constraintBottom_toBottomOf="parent"/>
 
         <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerView"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_alignParentBottom="true"
+                app:layout_constraintTop_toTopOf="@+id/errorText"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_behavior="@string/appbar_scrolling_view_behavior"
-                app:resource="@{resource}"/>
+                app:resource="@{resource}" android:layout_marginTop="16dp"/>
 
-    </RelativeLayout>
-
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>

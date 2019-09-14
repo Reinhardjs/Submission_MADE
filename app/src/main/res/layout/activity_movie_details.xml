@@ -72,7 +72,7 @@
             app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
 
 
-        <LinearLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingLeft="25dp"
@@ -81,121 +81,148 @@
                 android:orientation="vertical">
 
             <FrameLayout
+                    android:id="@+id/topContainer"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content" android:layout_marginTop="8dp"
+                    app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
+                    android:layout_marginRight="8dp">
 
                 <TextView
                         android:id="@+id/rating"
-                        android:text="0.0"
                         android:textSize="16sp"
                         android:textColor="#FFFFFF"
                         android:layout_marginTop="5dp"
                         android:layout_gravity="left"
                         android:drawableLeft="@drawable/ic_action_star"
+                        android:drawableStart="@drawable/ic_action_star"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
+                        android:layout_height="wrap_content"/>
 
                 <TextView
                         android:id="@+id/releaseDate"
-                        android:text="0000-00-00"
                         android:textSize="16sp"
                         android:textColor="#FFFFFF"
                         android:layout_gravity="right"
                         android:layout_marginTop="5dp"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content" />
+                        android:layout_height="wrap_content"/>
 
             </FrameLayout>
 
             <ImageView
                     android:id="@+id/posterImage"
-                    android:layout_marginTop="10dp"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintTop_toBottomOf="@+id/topContainer"
+                    app:layout_constraintStart_toStartOf="parent"/>
 
             <TextView
                     android:id="@+id/overview"
-                    android:text="Overview"
+                    android:text="@string/overview"
                     android:textSize="16sp"
                     android:textColor="#FFFFFF"
-                    android:layout_marginTop="10dp"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@+id/posterImage"
+                    app:layout_constraintStart_toStartOf="parent"/>
 
             <TextView
-                    android:text="Trailers"
+                    android:id="@+id/trailer"
+                    android:text="@string/trailers"
                     android:textSize="20sp"
                     android:textColor="#FFFFFF"
-                    android:layout_marginTop="20dp"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    app:layout_constraintTop_toBottomOf="@+id/overview"
+                    app:layout_constraintStart_toStartOf="parent"/>
 
             <TextView
                     android:id="@+id/trailer1"
-                    android:text="Trailer 1"
+                    android:text="@string/trailer_1"
                     android:textSize="16sp"
                     android:textColor="#FFFFFF"
-                    android:layout_marginTop="15dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
                     android:visibility="gone"
-                    android:drawableLeft="@drawable/ic_action_play"/>
+                    android:drawableLeft="@drawable/ic_action_play"
+                    android:drawableStart="@drawable/ic_action_play"
+                    app:layout_constraintTop_toBottomOf="@+id/trailer"
+                    app:layout_constraintStart_toStartOf="parent"/>
 
             <TextView
                     android:id="@+id/trailer2"
-                    android:text="Trailer 2"
+                    android:text="@string/trailer_2"
                     android:textSize="16sp"
                     android:textColor="#FFFFFF"
-                    android:layout_marginTop="15dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
                     android:visibility="gone"
-                    android:drawableLeft="@drawable/ic_action_play"/>
+                    android:drawableLeft="@drawable/ic_action_play"
+                    android:drawableStart="@drawable/ic_action_play"
+                    app:layout_constraintTop_toBottomOf="@+id/trailer1"
+                    app:layout_constraintStart_toStartOf="parent"/>
 
             <TextView
                     android:id="@+id/trailer3"
-                    android:text="Trailer 3"
+                    android:text="@string/trailer_3"
                     android:textSize="16sp"
                     android:textColor="#FFFFFF"
-                    android:layout_marginTop="15dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
                     android:visibility="gone"
-                    android:drawableLeft="@drawable/ic_action_play"/>
+                    android:drawableLeft="@drawable/ic_action_play"
+                    android:drawableStart="@drawable/ic_action_play"
+                    app:layout_constraintTop_toBottomOf="@+id/trailer2"
+                    app:layout_constraintStart_toStartOf="parent"/>
 
             <TextView
-                    android:text="Reviews"
+                    android:id="@+id/review"
+                    android:text="@string/reviews"
                     android:textSize="20sp"
                     android:textColor="#FFFFFF"
                     android:layout_marginTop="20dp"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@+id/trailer3"
+                    app:layout_constraintStart_toStartOf="parent"/>
 
             <TextView
                     android:id="@+id/review1"
-                    android:text="Review 1"
+                    android:text="@string/review_1"
                     android:textSize="16sp"
                     android:textColor="#FFFFFF"
                     android:layout_marginTop="15dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:visibility="gone"
-                    android:drawableLeft="@drawable/ic_action_link"/>
+                    android:drawableLeft="@drawable/ic_action_link"
+                    android:drawableStart="@drawable/ic_action_link"
+                    app:layout_constraintTop_toBottomOf="@+id/review"
+                    app:layout_constraintStart_toStartOf="parent"/>
 
             <TextView
                     android:id="@+id/review2"
-                    android:text="Review 2"
+                    android:text="@string/review_2"
                     android:textSize="16sp"
                     android:textColor="#FFFFFF"
                     android:layout_marginTop="15dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:visibility="gone"
-                    android:drawableLeft="@drawable/ic_action_link"/>
+                    android:drawableLeft="@drawable/ic_action_link"
+                    android:drawableStart="@drawable/ic_action_link"
+                    app:layout_constraintTop_toBottomOf="@+id/review1"
+                    app:layout_constraintStart_toStartOf="parent"/>
 
             <TextView
                     android:id="@+id/review3"
-                    android:text="Review 3"
+                    android:text="@string/review_3"
                     android:textSize="16sp"
                     android:textColor="#FFFFFF"
                     android:layout_marginTop="15dp"
@@ -203,9 +230,12 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:visibility="gone"
-                    android:drawableLeft="@drawable/ic_action_link"/>
+                    android:drawableLeft="@drawable/ic_action_link"
+                    android:drawableStart="@drawable/ic_action_link"
+                    app:layout_constraintTop_toBottomOf="@+id/review2"
+                    app:layout_constraintStart_toStartOf="parent"/>
 
-        </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.core.widget.NestedScrollView>
 

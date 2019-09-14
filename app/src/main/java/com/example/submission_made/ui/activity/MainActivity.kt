@@ -1,108 +1,72 @@
 package com.example.submission_made.ui.activity
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.os.Bundle
+import android.util.Log
+import android.view.Menu
 import androidx.appcompat.widget.Toolbar
-import androidx.fragment.app.FragmentPagerAdapter
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.android.volley.RequestQueue
 import com.example.submission_made.R
-import com.example.submission_made.data.pojo.MovieData
 import com.example.submission_made.databinding.ActivityMainBinding
-import com.example.submission_made.ui.adapter.MyAdapter
 import com.example.submission_made.ui.adapter.MyPagerAdapter
 import com.example.submission_made.ui.base.BaseActivity
+import com.example.submission_made.ui.fragment.MovieListFragment
+import com.example.submission_made.ui.fragment.TvShowListFragment
+import com.google.android.material.tabs.TabLayout
 import javax.inject.Inject
+
 
 class MainActivity : BaseActivity<ActivityMainBinding>() {
 
     @Inject
     lateinit var mContext: Context
-
-    var dataList = ArrayList<MovieData>()
-    lateinit var queue: RequestQueue
     lateinit var toolbarTop: Toolbar
-    lateinit var recyclerView: RecyclerView
-    lateinit var adapter: MyAdapter
-    lateinit var linearLayoutManager: LinearLayoutManager
-    lateinit var adapterViewPager: FragmentPagerAdapter
+    lateinit var adapterViewPager: MyPagerAdapter
+    lateinit var tabLayout: TabLayout
 
     override val layoutRes: Int = R.layout.activity_main
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val vpPager = dataBinding.viewPager
-        adapterViewPager = MyPagerAdapter(supportFragmentManager)
-        vpPager.adapter = adapterViewPager
+        INSTANCE = this
 
+        val viewPager = dataBinding.viewPager
         toolbarTop = dataBinding.toolbar
-        toolbarTop.title = "Movie List App"
-        toolbarTop.subtitle = "Now playing movie list"
+        tabLayout = dataBinding.tabLayout
+
+        toolbarTop.title = getString(R.string.toolbar_title)
         setSupportActionBar(toolbarTop)
+
+        adapterViewPager = MyPagerAdapter(mContext, supportFragmentManager)
+
+        adapterViewPager.addFragment(MovieListFragment.newInstance(0, "Page 1"))
+        adapterViewPager.addFragment(TvShowListFragment.newInstance(1, "Page 2"))
+
+        tabLayout.setupWithViewPager(viewPager)
+        viewPager.adapter = adapterViewPager
     }
 
-//    @SuppressLint("NewApi")
-//    override fun onCreate(savedInstanceState: Bundle?) {
-//        super.onCreate(savedInstanceState)
-//
-//        queue = Volley.newRequestQueue(this@MainActivity)
-//
-//        initViews()
-//        setListeners()
-//
-//        linearLayoutManager = LinearLayoutManager(this)
-//
-//        Utility.populateMoviesData(dataList)
-//        refreshRecyclerView(dataList.size)
-//    }
-//
-//    fun initViews() {
-//        toolbarTop = findViewById<Toolbar>(R.id.toolbar)
-//        toolbarTop.title = "Movie List App"
-//        toolbarTop.subtitle = "Now playing movie list"
-//        setSupportActionBar(toolbarTop)
-//
-//        recyclerView = findViewById(R.id.mRecyclerView)
-//        adapter = MyAdapter(this@MainActivity, applicationContext, dataList)
-//        recyclerView.layoutManager = linearLayoutManager as RecyclerView.LayoutManager?
-//        recyclerView.adapter = adapter
-//    }
-//
-//    fun setListeners() {
-//        adapter.setOnImageViewClickListener(object : MyAdapter.OnItemViewClickListener {
-//            override fun onItemViewClick(imageView: ImageView, movieData: MovieData) {
-//                val intent = Intent(this@MainActivity, MovieDetailsActivity::class.java)
-//
-//                val transitionName = ViewCompat.getTransitionName(imageView)
-//
-//                val options = ActivityOptionsCompat.makeSceneTransitionAnimation(
-//                    this@MainActivity,
-//                    imageView as View,
-//                    transitionName!!
-//                )
-//
-//                intent.putExtra("URL", movieData.getBackdropImageUrl())
-//                intent.putExtra("TRANSITION_NAME", transitionName)
-//                intent.putExtra("MOVIE_DATA", movieData)
-//
-//                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
-//                    startActivity(intent, options.toBundle())
-//                } else {
-//                    startActivity(intent)
-//                }
-//            }
-//        })
-//    }
-//
-//    fun refreshRecyclerView(listSize: Int) {
-//        adapter.notifyItemRangeInserted(0, listSize)
-//    }
-//
-//    fun resetRecyclerView(listSize: Int) {
-//        dataList.clear()
-//        adapter.notifyItemRangeRemoved(0, listSize)
-//    }
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        menuInflater.inflate(R.menu.main_menu, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        Log.d("MYAPP", "ON SAVE INSTANCE STATE on Activity")
+
+        // Untuk penanganan data tetap, itu di dalam fragment :
+        // MovieListFragment.kt dan TvShowListFragment.kt
+        super.onSaveInstanceState(outState)
+    }
+
+    companion object {
+        @SuppressLint("StaticFieldLeak")
+        lateinit var INSTANCE: MainActivity
+
+        fun getInstance(): MainActivity {
+            return INSTANCE
+        }
+    }
 
 }

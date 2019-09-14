@@ -1,3 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Submission1_MADE</string>
-</resources>
+    <string name="app_name">Submission_MADE</string>
+    <string name="trailer_3">Trailer 3</string>
+    <string name="trailer_2">Trailer 2</string>
+    <string name="trailer_1">Trailer 1</string>
+    <string name="trailers">Trailers</string>
+    <string name="overview">Overview</string>
+    <string name="reviews">Reviews</string>
+    <string name="review_1">Review 1</string>
+    <string name="review_2">Review 2</string>
+    <string name="review_3">Review 3</string>
+    <string name="change_language_settings">Language Settings</string>
+    <string name="toolbar_title">Movie List App</string>
+    <string name="movies">Movies</string>
+    <string name="tv_shows">Tv Shows</string>
+    <string name="data_load_success">Data successfully loaded!</string>
+</resources>    

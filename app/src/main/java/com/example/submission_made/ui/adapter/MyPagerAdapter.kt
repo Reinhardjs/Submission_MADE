@@ -1,32 +1,36 @@
 package com.example.submission_made.ui.adapter
 
+import android.content.Context
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
-import com.example.submission_made.ui.fragment.MovieListFragment
-import com.example.submission_made.ui.fragment.TvShowListFragment
+import com.example.submission_made.R
 
-class MyPagerAdapter(fragmentManager: FragmentManager) : FragmentPagerAdapter(fragmentManager) {
+class MyPagerAdapter(var context: Context, fragmentManager: FragmentManager) : FragmentPagerAdapter(fragmentManager) {
+
+    private var fragmentList: ArrayList<Fragment> = ArrayList()
+
+    fun addFragment(fragment: Fragment){
+        fragmentList.add(fragment)
+    }
 
     // Returns total number of pages
     override fun getCount(): Int {
-        return 2
+        return fragmentList.size
     }
 
     // Returns the fragment to display for that page
-    override fun getItem(position: Int): Fragment? {
-        when (position) {
-            0 // Fragment # 0 - This will show FirstFragment
-            -> return MovieListFragment.newInstance(0, "Page 1")
-            1 // Fragment # 0 - This will show FirstFragment different title
-            -> return TvShowListFragment.newInstance(1, "Page 2")
-            else -> return null
-        }
+    override fun getItem(position: Int): Fragment {
+        return fragmentList.get(position)
     }
 
     // Returns the page title for the top indicator
     override fun getPageTitle(position: Int): CharSequence? {
-        return "Page $position"
+        when (position){
+            0 -> return context.getString(R.string.movies)
+            1 -> return context.getString(R.string.tv_shows)
+            else -> return "Page $position"
+        }
     }
 
 }

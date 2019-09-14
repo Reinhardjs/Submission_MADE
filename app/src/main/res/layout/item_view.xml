@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<androidx.constraintlayout.widget.ConstraintLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -8,23 +9,22 @@
         android:weightSum="10"
         android:padding="15dp">
 
-    <LinearLayout
-            android:layout_width="match_parent"
+    <ImageView
+            android:id="@+id/movieImage"
+            android:layout_width="60dp"
             android:layout_height="wrap_content"
-            android:layout_weight="8">
-
-        <ImageView
-                android:id="@+id/movieImage"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:adjustViewBounds="true"/>
-
-    </LinearLayout>
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/textContainer"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintHorizontal_weight="8"
+            android:adjustViewBounds="true"/>
 
     <LinearLayout
-            android:layout_width="match_parent"
+            android:id="@+id/textContainer"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="2"
+            app:layout_constraintStart_toEndOf="@id/movieImage"
+            app:layout_constraintTop_toTopOf="parent"
             android:padding="5dp"
             android:orientation="vertical">
 
@@ -54,4 +54,4 @@
 
     </LinearLayout>
 
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
