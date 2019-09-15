@@ -4,7 +4,6 @@ import com.example.submission_made.data.entity.MovieEntity
 import com.example.submission_made.data.local.DbData
 import com.example.submission_made.data.remote.ApiData
 import io.reactivex.Completable
-import io.reactivex.Observable
 import io.reactivex.schedulers.Schedulers
 
 object Repository {
@@ -27,11 +26,4 @@ object Repository {
 class Repo(
     val api: DataSource,
     val db: DataSource
-) : DataSource {
-
-    override fun getAll(type: String, category: String): Observable<List<MovieEntity>> {
-        // handle ambil data offline & online nya di sini
-        return api.getAll(type, category)
-    }
-
-}
+)

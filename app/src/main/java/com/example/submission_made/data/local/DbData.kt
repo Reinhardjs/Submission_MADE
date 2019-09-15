@@ -5,6 +5,7 @@ import com.example.submission_made.MovieApp
 import com.example.submission_made.data.AppDatabase
 import com.example.submission_made.data.DataSource
 import com.example.submission_made.data.entity.MovieEntity
+import com.example.submission_made.data.entity.TvEntity
 import kotlin.reflect.KClass
 
 object DbData {
@@ -14,6 +15,7 @@ object DbData {
     fun of(clazz: KClass<*>): DataSource {
         return when (clazz) {
             MovieEntity::class -> MovieDbData(db.getMovieDao())
+            TvEntity::class -> MovieDbData(db.getMovieDao())
             else -> throw IllegalArgumentException("Unsupported data type")
         }
     }

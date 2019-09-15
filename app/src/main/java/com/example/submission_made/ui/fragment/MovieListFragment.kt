@@ -16,30 +16,34 @@ import androidx.core.app.ActivityOptionsCompat
 import androidx.core.view.ViewCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.submission_made.R
+import com.example.submission_made.data.entity.BaseEntity
 import com.example.submission_made.data.entity.MovieEntity
 import com.example.submission_made.data.remote.Resource
 import com.example.submission_made.data.remote.Status
 import com.example.submission_made.databinding.FragmentListBinding
 import com.example.submission_made.ui.activity.MovieDetailsActivity
-import com.example.submission_made.ui.adapter.MyAdapter
+import com.example.submission_made.ui.adapter.MovieAdapter
 import com.example.submission_made.ui.base.BaseFragment
 import com.example.submission_made.ui.callbacks.ListCallback
 import com.example.submission_made.viewmodel.MovieListViewModel
+import com.google.gson.Gson
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
 import javax.inject.Inject
 
-
 class MovieListFragment(var page: Int, var title: String) :
     BaseFragment<MovieListViewModel, FragmentListBinding>(),
-    ListCallback {
+    ListCallback<MovieEntity> {
 
     @Inject
     lateinit var mContext: Context
 
+    @Inject
+    lateinit var gson: Gson
+
     lateinit var resource: Resource<List<MovieEntity>>
-    lateinit var adapter: MyAdapter
+    lateinit var adapter: MovieAdapter
 
     constructor() : this(0, "")
 
@@ -63,7 +67,7 @@ class MovieListFragment(var page: Int, var title: String) :
 
             intent.putExtra("URL", movieEntity.getBackdropImageUrl())
             intent.putExtra("TRANSITION_NAME", transitionName)
-            intent.putExtra("MOVIE_DATA", movieEntity)
+            intent.putExtra("MOVIE_DATA", movieEntity as BaseEntity)
 
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
                 startActivity(intent, options.toBundle())
@@ -75,7 +79,7 @@ class MovieListFragment(var page: Int, var title: String) :
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
-        Log.d("MYAPP", "ON SAVE INSTANCE STATE on Activity")
+        Log.d("MYAPP", "ON SAVE INSTANCE STATE on Fragment")
         outState.putSerializable("resource", resource)
         super.onSaveInstanceState(outState)
     }
@@ -86,7 +90,7 @@ class MovieListFragment(var page: Int, var title: String) :
     ): View? {
         super.onCreateView(inflater, container, savedInstanceState)
 
-        adapter = MyAdapter(this)
+        adapter = MovieAdapter(this)
         dataBinding.recyclerView.layoutManager = LinearLayoutManager(activity)
         dataBinding.recyclerView.adapter = adapter
 

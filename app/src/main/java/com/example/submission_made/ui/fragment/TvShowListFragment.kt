@@ -16,28 +16,34 @@ import androidx.core.app.ActivityOptionsCompat
 import androidx.core.view.ViewCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.submission_made.R
-import com.example.submission_made.data.entity.MovieEntity
+import com.example.submission_made.data.entity.BaseEntity
+import com.example.submission_made.data.entity.TvEntity
 import com.example.submission_made.data.remote.Resource
 import com.example.submission_made.data.remote.Status
 import com.example.submission_made.databinding.FragmentListBinding
 import com.example.submission_made.ui.activity.MovieDetailsActivity
-import com.example.submission_made.ui.adapter.MyAdapter
+import com.example.submission_made.ui.adapter.TvShowAdapter
 import com.example.submission_made.ui.base.BaseFragment
 import com.example.submission_made.ui.callbacks.ListCallback
 import com.example.submission_made.viewmodel.MovieListViewModel
+import com.google.gson.Gson
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
 import javax.inject.Inject
 
-class TvShowListFragment(var page: Int, var title: String) : BaseFragment<MovieListViewModel, FragmentListBinding>(),
-    ListCallback {
+class TvShowListFragment(var page: Int, var title: String) :
+    BaseFragment<MovieListViewModel, FragmentListBinding>(),
+    ListCallback<TvEntity> {
 
     @Inject
     lateinit var mContext: Context
 
-    lateinit var resource: Resource<List<MovieEntity>>
-    lateinit var adapter: MyAdapter
+    @Inject
+    lateinit var gson: Gson
+
+    lateinit var resource: Resource<List<TvEntity>>
+    lateinit var adapter: TvShowAdapter
 
     constructor() : this(1, "")
 
@@ -48,7 +54,7 @@ class TvShowListFragment(var page: Int, var title: String) : BaseFragment<MovieL
         return MovieListViewModel::class.java
     }
 
-    override fun onItemClicked(imageView: ImageView, movieEntity: MovieEntity) {
+    override fun onItemClicked(imageView: ImageView, movieEntity: TvEntity) {
         if (activity != null) {
 
             val intent = Intent(mContext, MovieDetailsActivity::class.java)
@@ -61,7 +67,7 @@ class TvShowListFragment(var page: Int, var title: String) : BaseFragment<MovieL
 
             intent.putExtra("URL", movieEntity.getBackdropImageUrl())
             intent.putExtra("TRANSITION_NAME", transitionName)
-            intent.putExtra("MOVIE_DATA", movieEntity)
+            intent.putExtra("MOVIE_DATA", movieEntity as BaseEntity)
 
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
                 startActivity(intent, options.toBundle())
@@ -73,11 +79,10 @@ class TvShowListFragment(var page: Int, var title: String) : BaseFragment<MovieL
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
-        Log.d("MYAPP", "ON SAVE INSTANCE STATE on Activity")
+        Log.d("MYAPP", "ON SAVE INSTANCE STATE on Fragment")
         outState.putSerializable("resource", resource)
         super.onSaveInstanceState(outState)
     }
-
 
     @Nullable
     override fun onCreateView(
@@ -85,35 +90,40 @@ class TvShowListFragment(var page: Int, var title: String) : BaseFragment<MovieL
     ): View? {
         super.onCreateView(inflater, container, savedInstanceState)
 
-        adapter = MyAdapter(this)
-        dataBinding.recyclerView.setLayoutManager(LinearLayoutManager(activity))
-        dataBinding.recyclerView.setAdapter(adapter)
+        adapter = TvShowAdapter(this)
+        dataBinding.recyclerView.layoutManager = LinearLayoutManager(activity)
+        dataBinding.recyclerView.adapter = adapter
 
-        return dataBinding.getRoot()
+        return dataBinding.root
     }
 
     override fun onActivityCreated(@Nullable savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
 
-        if (savedInstanceState == null){
+        if (savedInstanceState == null) {
 
             var disposable: Disposable? =
-                viewModel.getTvShows().subscribeOn(Schedulers.io())?.observeOn(AndroidSchedulers.mainThread())?.subscribe(
+                viewModel.getTvShows().subscribeOn(Schedulers.io())
+                    ?.observeOn(AndroidSchedulers.mainThread())?.subscribe(
                     {
                         Log.d("MYAPP", "getAll UserEntity size - ${it.size}")
 
                         if (it != null) {
-                            dataBinding.loginProgress.setVisibility(View.GONE)
+                            dataBinding.loginProgress.visibility = View.GONE
                         }
 
                         val resource = Resource(null, it, null)
                         resource.status = Status.LOADING
 
-                        dataBinding.setResource(resource)
+                        dataBinding.resource = resource
                         this.resource = resource
 
-                        Toast.makeText(mContext, getString(R.string.data_load_success), Toast.LENGTH_SHORT).show()
+                        Toast.makeText(
+                            mContext,
+                            getString(R.string.data_load_success),
+                            Toast.LENGTH_SHORT
+                        ).show()
 
                     },
                     { it.printStackTrace() }
@@ -121,12 +131,11 @@ class TvShowListFragment(var page: Int, var title: String) : BaseFragment<MovieL
 
         } else {
 
-            resource = savedInstanceState.getSerializable("resource") as Resource<List<MovieEntity>>
-            dataBinding.loginProgress.setVisibility(View.GONE)
-            dataBinding.setResource(resource)
+            resource = savedInstanceState.getSerializable("resource") as Resource<List<TvEntity>>
+            dataBinding.loginProgress.visibility = View.GONE
+            dataBinding.resource = resource
 
         }
-
 
     }
 

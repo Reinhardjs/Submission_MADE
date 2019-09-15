@@ -1,13 +1,12 @@
 package com.example.submission_made.data.remote.response
 
-import com.example.submission_made.data.entity.MovieEntity
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 
-data class MovieResponse(
+data class MovieResponse<T>(
     @SerializedName("results")
     @Expose
-    val results: List<MovieEntity>,
+    val results: List<T>,
 
     @SerializedName("page")
     @Expose

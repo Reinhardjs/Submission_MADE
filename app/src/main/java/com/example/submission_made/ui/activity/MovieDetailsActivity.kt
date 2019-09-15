@@ -13,9 +13,9 @@ import com.android.volley.Response
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
 import com.example.submission_made.R
-import com.example.submission_made.utils.Utility
-import com.example.submission_made.data.entity.MovieEntity
+import com.example.submission_made.data.entity.BaseEntity
 import com.example.submission_made.data.remote.ApiConstants
+import com.example.submission_made.utils.Utility
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.squareup.picasso.Callback
 import com.squareup.picasso.Picasso
@@ -24,7 +24,7 @@ import org.json.JSONObject
 
 class MovieDetailsActivity : AppCompatActivity() {
 
-    lateinit var movieEntity: MovieEntity
+    lateinit var movieData: BaseEntity
     lateinit var queue: RequestQueue
     lateinit var rating: TextView
     lateinit var releaseDate: TextView
@@ -91,11 +91,13 @@ class MovieDetailsActivity : AppCompatActivity() {
         review1url = review2url
 
         val bundle = intent.extras
-        movieEntity = bundle.getParcelable("MOVIE_DATA")
+        movieData = bundle.getSerializable("MOVIE_DATA") as BaseEntity
 
         val toolbarTop = findViewById<View>(R.id.toolbar) as Toolbar
-        toolbarTop.title = movieEntity.title
+        toolbarTop.title = movieData.title
         setSupportActionBar(toolbarTop)
+
+        val fabFavorite = findViewById<FloatingActionButton>(R.id.fabFavorite)
 
         rating = findViewById(R.id.rating)
         releaseDate = findViewById(R.id.releaseDate)
@@ -117,19 +119,17 @@ class MovieDetailsActivity : AppCompatActivity() {
         trailer3.setOnClickListener(mTrailerClickListener)
 
         Picasso.with(applicationContext)
-            .load(movieEntity.getPosterImageUrl())
+            .load(movieData.getPosterImageUrl())
             .into(posterImage)
+
+        val ratingPercent = movieData.vote_average
+        val ratingCount = movieData.vote_count
+        rating.text = "$ratingPercent/10 ($ratingCount)"
+        overview.text = movieData.overview
+        releaseDate.text = movieData.release_date
 
         requestReview()
         requestTrailer()
-
-        val ratingPercent = movieEntity.vote_average
-        val ratingCount = movieEntity.vote_count
-        rating.text = "$ratingPercent/10 ($ratingCount)"
-        overview.text = movieEntity.overview
-        releaseDate.text = movieEntity.release_date
-
-        val fabFavorite = findViewById<FloatingActionButton>(R.id.fabFavorite)
 
         val url = bundle.getString("URL")
         val transitionName = bundle.getString("TRANSITION_NAME")
@@ -156,9 +156,9 @@ class MovieDetailsActivity : AppCompatActivity() {
 
     fun requestReview() {
         val url = "https://api.themoviedb.org/3/movie/" +
-                movieEntity.id +
+                movieData.id +
                 "/reviews?" +
-                "api_key="+ ApiConstants.API_KEY +"&language=en-US&page=1"
+                "api_key=" + ApiConstants.API_KEY + "&language=en-US&page=1"
 
         val getRequest = JsonObjectRequest(Request.Method.GET, url, null,
             Response.Listener { response ->
@@ -202,9 +202,9 @@ class MovieDetailsActivity : AppCompatActivity() {
 
     fun requestTrailer() {
         val url = "https://api.themoviedb.org/3/movie/" +
-                movieEntity.id +
+                movieData.id +
                 "/videos?" +
-                "api_key="+ ApiConstants.API_KEY +"&language=en-US"
+                "api_key=" + ApiConstants.API_KEY + "&language=en-US"
 
         val getRequest = JsonObjectRequest(Request.Method.GET, url, null,
             Response.Listener { response ->

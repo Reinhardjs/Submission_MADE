@@ -9,16 +9,16 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.ViewCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.example.submission_made.R
-import com.example.submission_made.data.entity.MovieEntity
+import com.example.submission_made.data.entity.TvEntity
 import com.example.submission_made.ui.base.BaseAdapter
 import com.example.submission_made.ui.callbacks.ListCallback
 import com.squareup.picasso.Picasso
 
-class MyAdapter(var listCallback: ListCallback) : BaseAdapter<MyAdapter.ViewHolder, MovieEntity>() {
+class TvShowAdapter(var listCallback: ListCallback<TvEntity>) : BaseAdapter<TvShowAdapter.ViewHolder, TvEntity>() {
 
-    private var dataList = ArrayList<MovieEntity>()
+    private var dataList = ArrayList<TvEntity>()
 
-    override fun setData(data: ArrayList<MovieEntity>) {
+    override fun setData(data: ArrayList<TvEntity>) {
         dataList = data
         notifyDataSetChanged()
     }
@@ -76,4 +76,3 @@ class MyAdapter(var listCallback: ListCallback) : BaseAdapter<MyAdapter.ViewHold
     }
 
 }
-

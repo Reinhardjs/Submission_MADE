@@ -2,9 +2,12 @@ package com.example.submission_made.ui.activity
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
+import android.provider.Settings
 import android.util.Log
 import android.view.Menu
+import android.view.MenuItem
 import androidx.appcompat.widget.Toolbar
 import com.example.submission_made.R
 import com.example.submission_made.databinding.ActivityMainBinding
@@ -14,7 +17,6 @@ import com.example.submission_made.ui.fragment.MovieListFragment
 import com.example.submission_made.ui.fragment.TvShowListFragment
 import com.google.android.material.tabs.TabLayout
 import javax.inject.Inject
-
 
 class MainActivity : BaseActivity<ActivityMainBinding>() {
 
@@ -47,16 +49,35 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
         viewPager.adapter = adapterViewPager
     }
 
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.getItemId()){
+            R.id.action_change_settings -> {
+                val mIntent = Intent(Settings.ACTION_LOCALE_SETTINGS)
+                startActivity(mIntent)
+            }
+        }
+
+        return super.onOptionsItemSelected(item)
+    }
+
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.main_menu, menu)
         return super.onCreateOptionsMenu(menu)
     }
 
+    /**
+     *
+     * Penanganan keep data saat perubahan orientasi layar, terdapat
+     * pada method onSaveInstanceState dan onActivityCreated kelas di bawah.
+     * Berikut link untuk ke kelas [MovieListFragment] & [TvShowListFragment]
+     *
+     */
     override fun onSaveInstanceState(outState: Bundle) {
         Log.d("MYAPP", "ON SAVE INSTANCE STATE on Activity")
 
         // Untuk penanganan data tetap, itu di dalam fragment :
         // MovieListFragment.kt dan TvShowListFragment.kt
+
         super.onSaveInstanceState(outState)
     }
 
