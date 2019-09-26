@@ -2,6 +2,7 @@ package com.example.submission_made.data
 
 import android.content.Context
 import androidx.room.*
+import com.example.submission_made.data.entity.FavoriteEntity
 import com.example.submission_made.data.entity.MovieEntity
 import com.example.submission_made.data.entity.TvEntity
 import com.example.submission_made.data.local.MovieDao
@@ -9,9 +10,9 @@ import java.util.*
 
 @Database(
     entities = [
-        MovieEntity::class, TvEntity::class
+        MovieEntity::class, TvEntity::class, FavoriteEntity::class
     ],
-    version = 1,
+    version = 2,
     exportSchema = false
 )
 @TypeConverters(DateConverter::class)

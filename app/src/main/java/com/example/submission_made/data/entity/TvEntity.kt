@@ -8,11 +8,11 @@ import com.google.gson.annotations.SerializedName
 data class TvEntity(
     @SerializedName("original_name")
     @Expose
-    override var title: String,
+    override var title: String?,
 
     @SerializedName("first_air_date")
     @Expose
-    override var release_date: String
+    override var release_date: String?
 ) : BaseEntity(title) {
 
     constructor() : this("", "")

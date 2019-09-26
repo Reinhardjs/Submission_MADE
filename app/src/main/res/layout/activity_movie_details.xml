@@ -1,242 +1,250 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".ui.activity.MovieDetailsActivity"
-        android:fitsSystemWindows="true">
+        xmlns:tools="http://schemas.android.com/tools">
 
-    <com.google.android.material.appbar.AppBarLayout
-            android:id="@+id/appBarLayout"
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
             android:layout_width="match_parent"
-            android:layout_height="250dp"
+            android:layout_height="match_parent"
             android:fitsSystemWindows="true"
-            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+            tools:context=".ui.activity.MovieDetailsActivity">
 
-        <com.google.android.material.appbar.CollapsingToolbarLayout
+        <com.google.android.material.appbar.AppBarLayout
+                android:id="@+id/appBarLayout"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                app:contentScrim="?attr/colorPrimary"
+                android:layout_height="250dp"
                 android:fitsSystemWindows="true"
-                app:layout_scrollFlags="scroll|exitUntilCollapsed|snap">
+                android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
-            <FrameLayout
+            <com.google.android.material.appbar.CollapsingToolbarLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:fitsSystemWindows="true"
-                    app:layout_collapseParallaxMultiplier="0.7">
-
-                <ImageView
-                        android:id="@+id/imagePoster"
-                        android:src="@drawable/background"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        app:layout_collapseMode="parallax"
-                        android:scaleType="fitXY" />
+                    app:contentScrim="?attr/colorPrimary"
+                    app:layout_scrollFlags="scroll|exitUntilCollapsed|snap">
 
                 <FrameLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="@drawable/gradient_bg"/>
-            </FrameLayout>
+                        android:fitsSystemWindows="true"
+                        app:layout_collapseParallaxMultiplier="0.7">
 
-            <com.google.android.material.floatingactionbutton.FloatingActionButton
-                    android:id="@+id/fabFavorite"
-                    android:layout_gravity="bottom|end"
-                    android:layout_marginRight="25dp"
-                    android:layout_marginBottom="20dp"
-                    app:layout_collapseMode="parallax"
-                    app:fabSize="normal"
-                    app:layout_anchor="@id/appBarLayout"
-                    app:layout_anchorGravity="bottom|end"
-                    android:src="@drawable/ic_action_heart"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:elevation="20dp"/>
+                    <ImageView
+                            android:id="@+id/imagePoster"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:scaleType="fitXY"
+                            android:src="@drawable/background"
+                            app:layout_collapseMode="parallax" />
 
-            <androidx.appcompat.widget.Toolbar
-                    android:id="@+id/toolbar"
-                    android:layout_width="match_parent"
-                    android:layout_height="?attr/actionBarSize"
-                    app:layout_collapseMode="pin"/>
-        </com.google.android.material.appbar.CollapsingToolbarLayout>
+                    <FrameLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/gradient_bg" />
+                </FrameLayout>
 
-    </com.google.android.material.appbar.AppBarLayout>
+                <androidx.appcompat.widget.Toolbar
+                        android:id="@+id/toolbar"
+                        android:layout_width="match_parent"
+                        android:layout_height="?attr/actionBarSize"
+                        app:layout_collapseMode="pin" />
 
-    <androidx.core.widget.NestedScrollView
-            android:id="@+id/main_nested_scroll_view"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                        android:id="@+id/fabFavorite"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="top|end"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginEnd="25dp"
+                        android:elevation="100dp"
+                        android:scaleType="fitCenter"
+                        app:fabSize="normal"
+                        app:layout_anchor="@id/appBarLayout"
+                        app:layout_anchorGravity="bottom|end"
+                        app:layout_collapseMode="parallax"
+                        app:srcCompat="@drawable/asl_trimclip_heart" />
 
+            </com.google.android.material.appbar.CollapsingToolbarLayout>
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.core.widget.NestedScrollView
+                android:id="@+id/main_nested_scroll_view"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingLeft="25dp"
-                android:paddingBottom="25dp"
-                android:paddingRight="25dp"
-                android:orientation="vertical">
+                android:layout_height="match_parent"
+                app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
 
-            <FrameLayout
-                    android:id="@+id/topContainer"
+
+            <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" android:layout_marginTop="8dp"
-                    app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
-                    android:layout_marginRight="8dp">
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingLeft="25dp"
+                    android:paddingRight="25dp"
+                    android:paddingBottom="25dp">
+
+                <FrameLayout
+                        android:id="@+id/topContainer"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginRight="8dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                    <TextView
+                            android:id="@+id/rating"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="left"
+                            android:layout_marginTop="5dp"
+                            android:drawableStart="@drawable/ic_action_star"
+                            android:drawableLeft="@drawable/ic_action_star"
+                            android:textColor="#FFFFFF"
+                            android:textSize="16sp" />
+
+                    <TextView
+                            android:id="@+id/releaseDate"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="right"
+                            android:layout_marginTop="5dp"
+                            android:textColor="#FFFFFF"
+                            android:textSize="16sp" />
+
+                </FrameLayout>
+
+                <ImageView
+                        android:id="@+id/posterImage"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/topContainer" />
 
                 <TextView
-                        android:id="@+id/rating"
-                        android:textSize="16sp"
-                        android:textColor="#FFFFFF"
-                        android:layout_marginTop="5dp"
-                        android:layout_gravity="left"
-                        android:drawableLeft="@drawable/ic_action_star"
-                        android:drawableStart="@drawable/ic_action_star"
+                        android:id="@+id/overview"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
+                        android:layout_height="wrap_content"
+                        android:text="@string/overview"
+                        android:textColor="#FFFFFF"
+                        android:textSize="16sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/posterImage" />
 
                 <TextView
-                        android:id="@+id/releaseDate"
-                        android:textSize="16sp"
-                        android:textColor="#FFFFFF"
-                        android:layout_gravity="right"
-                        android:layout_marginTop="5dp"
+                        android:id="@+id/trailer"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:text="@string/trailers"
+                        android:textColor="#FFFFFF"
+                        android:textSize="20sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/overview" />
 
-            </FrameLayout>
+                <TextView
+                        android:id="@+id/trailer1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:drawableStart="@drawable/ic_action_play"
+                        android:drawableLeft="@drawable/ic_action_play"
+                        android:text="@string/trailer_1"
+                        android:textColor="#FFFFFF"
+                        android:textSize="16sp"
+                        android:visibility="gone"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/trailer" />
 
-            <ImageView
-                    android:id="@+id/posterImage"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    app:layout_constraintTop_toBottomOf="@+id/topContainer"
-                    app:layout_constraintStart_toStartOf="parent"/>
+                <TextView
+                        android:id="@+id/trailer2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:drawableStart="@drawable/ic_action_play"
+                        android:drawableLeft="@drawable/ic_action_play"
+                        android:text="@string/trailer_2"
+                        android:textColor="#FFFFFF"
+                        android:textSize="16sp"
+                        android:visibility="gone"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/trailer1" />
 
-            <TextView
-                    android:id="@+id/overview"
-                    android:text="@string/overview"
-                    android:textSize="16sp"
-                    android:textColor="#FFFFFF"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintTop_toBottomOf="@+id/posterImage"
-                    app:layout_constraintStart_toStartOf="parent"/>
+                <TextView
+                        android:id="@+id/trailer3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:drawableStart="@drawable/ic_action_play"
+                        android:drawableLeft="@drawable/ic_action_play"
+                        android:text="@string/trailer_3"
+                        android:textColor="#FFFFFF"
+                        android:textSize="16sp"
+                        android:visibility="gone"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/trailer2" />
 
-            <TextView
-                    android:id="@+id/trailer"
-                    android:text="@string/trailers"
-                    android:textSize="20sp"
-                    android:textColor="#FFFFFF"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    app:layout_constraintTop_toBottomOf="@+id/overview"
-                    app:layout_constraintStart_toStartOf="parent"/>
+                <TextView
+                        android:id="@+id/review"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:text="@string/reviews"
+                        android:textColor="#FFFFFF"
+                        android:textSize="20sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/trailer3" />
 
-            <TextView
-                    android:id="@+id/trailer1"
-                    android:text="@string/trailer_1"
-                    android:textSize="16sp"
-                    android:textColor="#FFFFFF"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="15dp"
-                    android:visibility="gone"
-                    android:drawableLeft="@drawable/ic_action_play"
-                    android:drawableStart="@drawable/ic_action_play"
-                    app:layout_constraintTop_toBottomOf="@+id/trailer"
-                    app:layout_constraintStart_toStartOf="parent"/>
+                <TextView
+                        android:id="@+id/review1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:drawableStart="@drawable/ic_action_link"
+                        android:drawableLeft="@drawable/ic_action_link"
+                        android:text="@string/review_1"
+                        android:textColor="#FFFFFF"
+                        android:textSize="16sp"
+                        android:visibility="gone"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/review" />
 
-            <TextView
-                    android:id="@+id/trailer2"
-                    android:text="@string/trailer_2"
-                    android:textSize="16sp"
-                    android:textColor="#FFFFFF"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="15dp"
-                    android:visibility="gone"
-                    android:drawableLeft="@drawable/ic_action_play"
-                    android:drawableStart="@drawable/ic_action_play"
-                    app:layout_constraintTop_toBottomOf="@+id/trailer1"
-                    app:layout_constraintStart_toStartOf="parent"/>
+                <TextView
+                        android:id="@+id/review2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:drawableStart="@drawable/ic_action_link"
+                        android:drawableLeft="@drawable/ic_action_link"
+                        android:text="@string/review_2"
+                        android:textColor="#FFFFFF"
+                        android:textSize="16sp"
+                        android:visibility="gone"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/review1" />
 
-            <TextView
-                    android:id="@+id/trailer3"
-                    android:text="@string/trailer_3"
-                    android:textSize="16sp"
-                    android:textColor="#FFFFFF"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="15dp"
-                    android:visibility="gone"
-                    android:drawableLeft="@drawable/ic_action_play"
-                    android:drawableStart="@drawable/ic_action_play"
-                    app:layout_constraintTop_toBottomOf="@+id/trailer2"
-                    app:layout_constraintStart_toStartOf="parent"/>
+                <TextView
+                        android:id="@+id/review3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginBottom="20dp"
+                        android:drawableStart="@drawable/ic_action_link"
+                        android:drawableLeft="@drawable/ic_action_link"
+                        android:text="@string/review_3"
+                        android:textColor="#FFFFFF"
+                        android:textSize="16sp"
+                        android:visibility="gone"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/review2" />
 
-            <TextView
-                    android:id="@+id/review"
-                    android:text="@string/reviews"
-                    android:textSize="20sp"
-                    android:textColor="#FFFFFF"
-                    android:layout_marginTop="20dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintTop_toBottomOf="@+id/trailer3"
-                    app:layout_constraintStart_toStartOf="parent"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <TextView
-                    android:id="@+id/review1"
-                    android:text="@string/review_1"
-                    android:textSize="16sp"
-                    android:textColor="#FFFFFF"
-                    android:layout_marginTop="15dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:visibility="gone"
-                    android:drawableLeft="@drawable/ic_action_link"
-                    android:drawableStart="@drawable/ic_action_link"
-                    app:layout_constraintTop_toBottomOf="@+id/review"
-                    app:layout_constraintStart_toStartOf="parent"/>
+        </androidx.core.widget.NestedScrollView>
 
-            <TextView
-                    android:id="@+id/review2"
-                    android:text="@string/review_2"
-                    android:textSize="16sp"
-                    android:textColor="#FFFFFF"
-                    android:layout_marginTop="15dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:visibility="gone"
-                    android:drawableLeft="@drawable/ic_action_link"
-                    android:drawableStart="@drawable/ic_action_link"
-                    app:layout_constraintTop_toBottomOf="@+id/review1"
-                    app:layout_constraintStart_toStartOf="parent"/>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
-            <TextView
-                    android:id="@+id/review3"
-                    android:text="@string/review_3"
-                    android:textSize="16sp"
-                    android:textColor="#FFFFFF"
-                    android:layout_marginTop="15dp"
-                    android:layout_marginBottom="20dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:visibility="gone"
-                    android:drawableLeft="@drawable/ic_action_link"
-                    android:drawableStart="@drawable/ic_action_link"
-                    app:layout_constraintTop_toBottomOf="@+id/review2"
-                    app:layout_constraintStart_toStartOf="parent"/>
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-    </androidx.core.widget.NestedScrollView>
-
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

@@ -9,6 +9,8 @@ import retrofit2.http.Path
 
 interface MovieService {
 
+    // example : https://api.themoviedb.org/3/movie/popular?api_key=
+
     @GET("/3/movie/{category}")
     fun getMovies(
         @Path("category") category: String): Observable<MovieResponse<MovieEntity>>

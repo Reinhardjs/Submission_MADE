@@ -8,7 +8,7 @@ import com.google.gson.annotations.SerializedName
 class MovieEntity(
     @SerializedName("original_title")
     @Expose
-    override var title: String
+    override var title: String?
 ) : BaseEntity(title) {
 
     constructor() : this("")

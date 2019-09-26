@@ -24,6 +24,6 @@ object Repository {
 }
 
 class Repo(
-    val api: DataSource,
-    val db: DataSource
+    val api: RemoteDataSource,
+    val db: LocalDataSource
 )

@@ -3,4 +3,10 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
+    <color name="gray">#ccc</color>
+    <color name="pink">#e91e63</color>
+
+    <color name="fab_heart_empty">@color/colorPrimary</color>
+    <color name="fab_heart_progress_bar">#deffffff</color> <!-- 87% white-->
+    <color name="fab_heart_full">#ffffffff</color>
 </resources>

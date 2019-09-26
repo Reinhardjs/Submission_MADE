@@ -1,0 +1,42 @@
+<vector
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:width="56dp"
+        android:height="56dp"
+        android:tint="?attr/colorControlNormal"
+        android:viewportHeight="56"
+        android:viewportWidth="56">
+
+    <group
+            android:scaleX="1.8"
+            android:scaleY="1.8"
+            android:pivotX="30"
+            android:pivotY="30">
+        <path
+                android:pathData="@string/heart_stroke_left"
+                android:strokeColor="@android:color/white"
+                android:strokeWidth="3"/>
+
+        <path
+                android:pathData="@string/heart_stroke_right"
+                android:strokeColor="@android:color/white"
+                android:strokeWidth="3"/>
+
+    </group>
+
+    <group
+            android:name="filled"
+            android:scaleX="1.8"
+            android:scaleY="1.8"
+            android:pivotX="30"
+            android:pivotY="30">
+        <clip-path
+                android:name="clip"
+                android:pathData="@string/heart_clip_hidden"/>
+        <path
+                android:fillColor="@android:color/white"
+                android:pathData="@string/heart_full_path"/>
+    </group>
+
+
+
+</vector>

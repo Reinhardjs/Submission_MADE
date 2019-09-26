@@ -3,7 +3,7 @@ package com.example.submission_made.data.local
 import androidx.sqlite.db.SimpleSQLiteQuery
 import com.example.submission_made.MovieApp
 import com.example.submission_made.data.AppDatabase
-import com.example.submission_made.data.DataSource
+import com.example.submission_made.data.LocalDataSource
 import com.example.submission_made.data.entity.MovieEntity
 import com.example.submission_made.data.entity.TvEntity
 import kotlin.reflect.KClass
@@ -12,7 +12,7 @@ object DbData {
 
     val db: AppDatabase by lazy { AppDatabase.getInstance(MovieApp.getContext()) }
 
-    fun of(clazz: KClass<*>): DataSource {
+    fun of(clazz: KClass<*>): LocalDataSource {
         return when (clazz) {
             MovieEntity::class -> MovieDbData(db.getMovieDao())
             TvEntity::class -> MovieDbData(db.getMovieDao())

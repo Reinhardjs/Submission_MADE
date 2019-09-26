@@ -9,17 +9,17 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.ViewCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.example.submission_made.R
-import com.example.submission_made.data.entity.TvEntity
+import com.example.submission_made.data.entity.FavoriteEntity
 import com.example.submission_made.ui.base.BaseAdapter
 import com.example.submission_made.ui.callbacks.ListCallback
 import com.squareup.picasso.Picasso
 
-class TvShowAdapter(var listCallback: ListCallback<TvEntity>) :
-    BaseAdapter<TvShowAdapter.ViewHolder, TvEntity>() {
+class FavoriteAdapter(var listCallback: ListCallback<FavoriteEntity>) :
+    BaseAdapter<FavoriteAdapter.ViewHolder, FavoriteEntity>() {
 
-    private var dataList = ArrayList<TvEntity>()
+    private var dataList = ArrayList<FavoriteEntity>()
 
-    override fun setData(data: ArrayList<TvEntity>) {
+    override fun setData(data: ArrayList<FavoriteEntity>) {
         dataList = data
         notifyDataSetChanged()
     }

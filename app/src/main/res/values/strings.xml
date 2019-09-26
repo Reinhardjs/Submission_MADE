@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Submission_MADE</string>
+
+    <string name="toolbar_title">Movie List App</string>
+    <string name="favorite_toolbar_title">Favorite List</string>
+
     <string name="trailer_3">Trailer 3</string>
     <string name="trailer_2">Trailer 2</string>
     <string name="trailer_1">Trailer 1</string>
@@ -11,8 +15,20 @@
     <string name="review_2">Review 2</string>
     <string name="review_3">Review 3</string>
     <string name="change_language_settings">Language Settings</string>
-    <string name="toolbar_title">Movie List App</string>
     <string name="movies">Movies</string>
     <string name="tv_shows">Tv Shows</string>
     <string name="data_load_success">Data successfully loaded!</string>
+
+    <string name="favorite_inserted">Inserted to favorite</string>
+    <string name="favorite_deleted">Deleted from favorite</string>
+
+
+    <string name="heart">
+    M25.119,2.564c12.434,0.023,18.68,5.892,24.88,17.612  c6.2-11.721,12.446-17.589,24.877-17.612c13.81-0.025,25.035,10.575,25.061,23.66c0.033,23.708-24.952,47.46-49.938,71.212  C25.016,73.685,0.03,49.932,0.064,26.224C0.085,13.14,11.309,2.539,25.119,2.564z
+    </string>
+    <string name="heart_stroke_left">M28.7194825,38.2960196 L25.6688233,35.5523072 C21.6213379,31.793335 18.0159912,28.8906251 18.0159912,24.845337 C18.0159912,21.5882568 20.6305373,19.9651315 23.6337891,19.9651442 C24.9985352,19.96515 26.7993165,21.180664 28.643982,23.1297608</string>
+    <string name="heart_stroke_right">M27.2310342,38.2944327 L30.7645263,35.2004395 C34.8336142,31.2354829 37.751709,29.1181308 38.0040283,25.0838624 C38.1681943,22.4590544 35.7730552,20.034668 33.3791503,20.034668 C30.4320068,20.034668 29.671997,21.0472412 27.2310342,23.1328126</string>
+    <string name="heart_full_path">M28,39 L26.405,37.5667575 C20.74,32.4713896 17,29.1089918 17,24.9945504 C17,21.6321526 19.6565,19 23.05,19 C24.964,19 26.801,19.8828338 28,21.2724796 C29.199,19.8828338 31.036,19 32.95,19 C36.3435,19 39,21.6321526 39,24.9945504 C39,29.1089918 35.26,32.4713896 29.595,37.5667575 L28,39 L28,39 Z</string>
+    <string name="heart_clip_hidden">M18 37 L38 37 L38 37 L18 37 Z</string>
+    <string name="heart_clip_shown">M0 0 L56 0 L56 56 L0 56 Z</string>
 </resources>    

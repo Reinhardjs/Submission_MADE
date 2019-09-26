@@ -17,12 +17,12 @@ import androidx.core.view.ViewCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.submission_made.R
 import com.example.submission_made.data.entity.BaseEntity
-import com.example.submission_made.data.entity.MovieEntity
+import com.example.submission_made.data.entity.FavoriteEntity
 import com.example.submission_made.data.remote.Resource
 import com.example.submission_made.data.remote.Status
 import com.example.submission_made.databinding.FragmentListBinding
 import com.example.submission_made.ui.activity.MovieDetailsActivity
-import com.example.submission_made.ui.adapter.MovieAdapter
+import com.example.submission_made.ui.adapter.FavoriteAdapter
 import com.example.submission_made.ui.base.BaseFragment
 import com.example.submission_made.ui.callbacks.ListCallback
 import com.example.submission_made.viewmodel.MovieListViewModel
@@ -32,9 +32,9 @@ import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
 import javax.inject.Inject
 
-class MovieListFragment(var page: Int, var title: String) :
+class FavoriteMovieListFragment(var page: Int, var title: String) :
     BaseFragment<MovieListViewModel, FragmentListBinding>(),
-    ListCallback<MovieEntity> {
+    ListCallback<FavoriteEntity> {
 
     @Inject
     lateinit var mContext: Context
@@ -42,10 +42,10 @@ class MovieListFragment(var page: Int, var title: String) :
     @Inject
     lateinit var gson: Gson
 
-    lateinit var resource: Resource<List<MovieEntity>>
-    lateinit var adapter: MovieAdapter
+    lateinit var resource: Resource<List<FavoriteEntity>>
+    lateinit var adapter: FavoriteAdapter
 
-    constructor() : this(0, "")
+    constructor() : this(1, "")
 
     public override val layoutRes: Int
         get() = R.layout.fragment_list
@@ -54,7 +54,7 @@ class MovieListFragment(var page: Int, var title: String) :
         return MovieListViewModel::class.java
     }
 
-    override fun onItemClicked(imageView: ImageView, movieEntity: MovieEntity) {
+    override fun onItemClicked(imageView: ImageView, movieEntity: FavoriteEntity) {
         if (activity != null) {
 
             val intent = Intent(mContext, MovieDetailsActivity::class.java)
@@ -90,63 +90,49 @@ class MovieListFragment(var page: Int, var title: String) :
     ): View? {
         super.onCreateView(inflater, container, savedInstanceState)
 
-        adapter = MovieAdapter(this)
+        adapter = FavoriteAdapter(this)
         dataBinding.recyclerView.layoutManager = LinearLayoutManager(activity)
         dataBinding.recyclerView.adapter = adapter
 
         return dataBinding.root
     }
 
-    override fun onActivityCreated(@Nullable savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
+    override fun onResume() {
+        super.onResume()
 
-        if (savedInstanceState == null) {
+        val disposable: Disposable = viewModel.getFavorites("movies")
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribeOn(Schedulers.io())
+            .subscribe(
+                {
 
-            var disposable: Disposable? =
-                viewModel.getMovies()
-                    .subscribeOn(Schedulers.io())
-                    .observeOn(AndroidSchedulers.mainThread())
-                    .subscribe(
-                        {
+                    if (it != null) {
+                        dataBinding.loginProgress.visibility = View.GONE
+                    }
 
-                            // Log.d("MYAPP", "ON RESPONSE, SIZE : " + it.results.size)
+                    val resource = Resource(null, it, null)
+                    resource.status = Status.LOADING
 
-                            Log.d("MYAPP", "getAll UserEntity size - ${it.size}")
+                    dataBinding.resource = resource
+                    this.resource = resource
 
-                            if (it != null) {
-                                dataBinding.loginProgress.visibility = View.GONE
-                            }
-
-                            val resource = Resource(null, it, null)
-                            resource.status = Status.LOADING
-
-                            dataBinding.resource = resource
-                            this.resource = resource
-
-                            Toast.makeText(
-                                mContext,
-                                getString(R.string.data_load_success),
-                                Toast.LENGTH_SHORT
-                            ).show()
-
-                        },
-                        { it.printStackTrace() }
-                    )
-
-        } else {
-
-            resource = savedInstanceState.getSerializable("resource") as Resource<List<MovieEntity>>
-            dataBinding.loginProgress.visibility = View.GONE
-            dataBinding.resource = resource
-
-        }
-
+                    Toast.makeText(
+                        context,
+                        getString(R.string.data_load_success),
+                        Toast.LENGTH_SHORT
+                    ).show()
+                },
+                {
+                    it.printStackTrace()
+                    Log.d("MYAPP", "Exception for get favorite items : " + it.message)
+                }
+            )
     }
 
     companion object {
         @JvmStatic
-        fun newInstance(page: Int, title: String): MovieListFragment {
-            val fragment = MovieListFragment(page, title)
+        fun newInstance(page: Int, title: String): FavoriteMovieListFragment {
+            val fragment = FavoriteMovieListFragment(page, title)
             return fragment
         }
     }

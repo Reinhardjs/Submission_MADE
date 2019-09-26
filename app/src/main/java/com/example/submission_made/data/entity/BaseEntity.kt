@@ -13,37 +13,40 @@ open class BaseEntity(
     open var id: Int,
 
     @Ignore
-    open var title: String,
+    open var title: String?,
+
+    @SerializedName("tableName")
+    open var tableName: String?,
 
     @Ignore
-    open var release_date: String,
+    open var release_date: String?,
 
     @SerializedName("overview")
     @Expose
-    open var overview: String,
+    open var overview: String?,
 
     @SerializedName("poster_path")
     @Expose
-    open var poster_path: String,
+    open var poster_path: String?,
 
     @SerializedName("backdrop_path")
     @Expose
-    open var backdrop_path: String,
+    open var backdrop_path: String?,
 
     @SerializedName("vote_count")
     @Expose
-    open var vote_count: Int,
+    open var vote_count: Int?,
 
     @SerializedName("vote_average")
     @Expose
-    open var vote_average: Double,
+    open var vote_average: Double?,
 
     @SerializedName("popularity")
     @Expose
-    open var popularity: Double
+    open var popularity: Double?
 ) : Serializable {
 
-    constructor(title: String) : this(-1, title, "", "", "", "", 0, 0.0, 0.0)
+    constructor(title: String?) : this(-1, title, "","", "", "", "", 0, 0.0, 0.0)
 
     fun getPosterImageUrl() = "https://image.tmdb.org/t/p/w342" + this.poster_path
 

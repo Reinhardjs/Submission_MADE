@@ -1,8 +1,6 @@
 package com.example.submission_made.data.remote
 
-import android.os.Parcelable
 import com.example.submission_made.data.remote.Status.*
-import kotlinx.android.parcel.Parcelize
 import kotlinx.android.parcel.RawValue
 import java.io.Serializable
 
