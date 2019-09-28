@@ -1,0 +1,266 @@
+fun populateMoviesData(entityList: ArrayList<MovieEntity>) {
+
+        // Data 1
+        var movieData = MovieEntity()
+        movieData.id = 384018
+        movieData.title = "Fast & Furious Presents: Hobbs & Shaw"
+        movieData.overview = "A spinoff of The Fate of the Furious, focusing on Johnson's US Diplomatic Security Agent Luke Hobbs forming an unlikely alliance with Statham's Deckard Shaw."
+        movieData.poster_path = "/keym7MPn1icW1wWfzMnW3HeuzWU.jpg"
+        movieData.backdrop_path = "/hpgda6P9GutvdkDX5MUJ92QG9aj.jpg"
+        movieData.vote_count = 581
+        movieData.vote_average = 6.5
+        movieData.popularity = 456.135
+        movieData.release_date = "2019-08-01"
+        entityList.add(movieData)
+
+        // Data 2
+        movieData = MovieEntity()
+        movieData.id = 420818
+        movieData.title = "The Lion King"
+        movieData.overview = "Simba idolises his father, King Mufasa, and takes to heart his own royal destiny. But not everyone in the kingdom celebrates the new cub's arrival. Scar, Mufasa's brother—and former heir to the throne—has plans of his own. The battle for Pride Rock is ravaged with betrayal, tragedy and drama, ultimately resulting in Simba's exile. With help from a curious pair of newfound friends, Simba will have to figure out how to grow up and take back what is rightfully his."
+        movieData.poster_path = "/2bXbqYdUdNVa8VIWXVfclP2ICtT.jpg"
+        movieData.backdrop_path = "/1TUg5pO1VZ4B0Q1amk3OlXvlpXV.jpg"
+        movieData.vote_count = 1739
+        movieData.vote_average = 7.1
+        movieData.popularity = 265.913
+        movieData.release_date = "2019-07-12"
+        entityList.add(movieData)
+
+        // Data 3
+        movieData = MovieEntity()
+        movieData.id = 420818
+        movieData.title = "Detective Conan: The Fist of Blue Sapphire"
+        movieData.overview = "23rd movie in the \"Detective Conan\" franchise."
+        movieData.poster_path = "/86Y6qM8zTn3PFVfCm9J98Ph7JEB.jpg"
+        movieData.backdrop_path = "/wf6VDSi4aFCZfuD8sX8JAKLfJ5m.jpg"
+        movieData.vote_count = 41
+        movieData.vote_average = 5.1
+        movieData.popularity = 172.051
+        movieData.release_date = "2019-04-12"
+        entityList.add(movieData)
+
+        // Data 4
+        movieData = MovieEntity()
+        movieData.id = 420818
+        movieData.title = "Spider-Man: Far from Home"
+        movieData.overview = "Peter Parker and his friends go on a summer trip to Europe. However, they will hardly be able to rest - Peter will have to agree to help Nick Fury uncover the mystery of creatures that cause natural disasters and destruction throughout the continent."
+        movieData.poster_path = "/rjbNpRMoVvqHmhmksbokcyCr7wn.jpg"
+        movieData.backdrop_path = "/dihW2yTsvQlust7mSuAqJDtqW7k.jpg"
+        movieData.vote_count = 2972
+        movieData.vote_average = 7.8
+        movieData.popularity = 168.668
+        movieData.release_date = "2019-06-28"
+        entityList.add(movieData)
+
+        // Data 5
+        movieData = MovieEntity()
+        movieData.id = 466272
+        movieData.title = "Once Upon a Time in Hollywood"
+        movieData.overview = "A faded television actor and his stunt double strive to achieve fame and success in the film industry during the final years of Hollywood's Golden Age in 1969 Los Angeles."
+        movieData.poster_path = "/8j58iEBw9pOXFD2L0nt0ZXeHviB.jpg"
+        movieData.backdrop_path = "/b82nVVhYNRgtsTFV1jkdDwe6LJZ.jpg"
+        movieData.vote_count = 273
+        movieData.vote_average = 7.5
+        movieData.popularity = 158.833
+        movieData.release_date = "2019-07-25"
+        entityList.add(movieData)
+
+        // Data 6
+        movieData = MovieEntity()
+        movieData.id = 299534
+        movieData.title = "Avengers: Endgame"
+        movieData.overview = "After the devastating events of Avengers: Infinity War, the universe is in ruins due to the efforts of the Mad Titan, Thanos. With the help of remaining allies, the Avengers must assemble once more in order to undo Thanos' actions and restore order to the universe once and for all, no matter what consequences may be in store."
+        movieData.poster_path = "/or06FN3Dka5tukK1e9sl16pB3iy.jpg"
+        movieData.backdrop_path = "/7RyHsO4yDXtBv1zUU3mTpHeQ0d5.jpg"
+        movieData.vote_count = 8683
+        movieData.vote_average = 8.4
+        movieData.popularity = 150.001
+        movieData.release_date = "2019-04-24"
+        entityList.add(movieData)
+
+        // Data 7
+        movieData = MovieEntity()
+        movieData.id = 531309
+        movieData.title = "Brightburn"
+        movieData.overview = "What if a child from another world crash-landed on Earth, but instead of becoming a hero to mankind, he proved to be something far more sinister?"
+        movieData.poster_path = "/sJWwkYc9ajwnPRSkqj8Aue5JbKz.jpg"
+        movieData.backdrop_path = "/uHEI6v8ApQusjbaRZ8o7WcLYeWb.jpg"
+        movieData.vote_count = 540
+        movieData.vote_average = 5.7
+        movieData.popularity = 125.613
+        movieData.release_date = "2019-05-09"
+        entityList.add(movieData)
+
+        // Data 8
+        movieData = MovieEntity()
+        movieData.id = 506574
+        movieData.title = "Descendants 3"
+        movieData.overview = "The teenagers of Disney's most infamous villains return to the Isle of the Lost to recruit a new batch of villainous offspring to join them at Auradon Prep."
+        movieData.poster_path = "/7IRy0iHdaS0JI3ng4ZYlk5gLSFn.jpg"
+        movieData.backdrop_path = "/gzdxeOiO76hDoOSKYCxegj7bk4T.jpg"
+        movieData.vote_count = 140
+        movieData.vote_average = 8.2
+        movieData.popularity = 118.616
+        movieData.release_date = "2019-08-09"
+        entityList.add(movieData)
+
+        // Data 9
+        movieData = MovieEntity()
+        movieData.id = 458156
+        movieData.title = "John Wick: Chapter 3 – Parabellum"
+        movieData.overview = "Super-assassin John Wick returns with a $14 million price tag on his head and an army of bounty-hunting killers on his trail. After killing a member of the shadowy international assassin’s guild, the High Table, John Wick is excommunicado, but the world’s most ruthless hit men and women await his every turn."
+        movieData.poster_path = "/ziEuG1essDuWuC5lpWUaw1uXY2O.jpg"
+        movieData.backdrop_path = "/vVpEOvdxVBP2aV166j5Xlvb5Cdc.jpg"
+        movieData.vote_count = 1845
+        movieData.vote_average = 7.1
+        movieData.popularity = 102.57
+        movieData.release_date = "2019-05-15"
+        entityList.add(movieData)
+
+        // Data 10
+        movieData = MovieEntity()
+        movieData.id = 449562
+        movieData.title = "The Hustle"
+        movieData.overview = "Two female scam artists, one low rent and the other high class, compete to swindle a naïve tech prodigy out of his fortune. A remake of the 1988 comedy \"Dirty Rotten Scoundrels.\""
+        movieData.poster_path = "/hHAD7cx1j2RAyjwREVgJeLcLVoi.jpg"
+        movieData.backdrop_path = "/s6awXOxTKYQLSktiIJfI3969dZH.jpg"
+        movieData.vote_count = 376
+        movieData.vote_average = 6.1
+        movieData.popularity = 98.324
+        movieData.release_date = "2019-05-09"
+        entityList.add(movieData)
+    }
+
+    fun populateTvShowData(entityList: ArrayList<MovieEntity>) {
+
+        // Data 1
+        var movieData = MovieEntity()
+        movieData = MovieEntity()
+        movieData.id = 458156
+        movieData.title = "Stranger Things"
+        movieData.overview = "When a young boy vanishes, a small town uncovers a mystery involving secret experiments, terrifying supernatural forces, and one strange little girl."
+        movieData.poster_path = "/x2LSRK2Cm7MZhjluni1msVJ3wDF.jpg"
+        movieData.backdrop_path = "/56v2KjBlU4XaOv9rVYEQypROD7P.jpg"
+        movieData.vote_count = 2575
+        movieData.vote_average = 8.3
+        movieData.popularity = 113.76
+        movieData.release_date = "2016-07-15"
+        entityList.add(movieData)
+
+        // Data 2
+        movieData = MovieEntity()
+        movieData.id = 420818
+        movieData.title = "The Flash"
+        movieData.overview = "After a particle accelerator causes a freak storm, CSI Investigator Barry Allen is struck by lightning and falls into a coma. Months later he awakens with the power of super speed, granting him the ability to move through Central City like an unseen guardian angel. Though initially excited by his newfound powers, Barry is shocked to discover he is not the only \"meta-human\" who was created in the wake of the accelerator explosion -- and not everyone is using their new powers for good. Barry partners with S.T.A.R. Labs and dedicates his life to protect the innocent. For now, only a few close friends and associates know that Barry is literally the fastest man alive, but it won't be long before the world learns what Barry Allen has become...The Flash."
+        movieData.poster_path = "/fki3kBlwJzFp8QohL43g9ReV455.jpg"
+        movieData.backdrop_path = "/jC1KqsFx8ZyqJyQa2Ohi7xgL7XC.jpg"
+        movieData.vote_count = 2814
+        movieData.vote_average = 6.6
+        movieData.popularity = 317.283
+        movieData.release_date = "2014-10-07"
+        entityList.add(movieData)
+
+        // Data 3
+        movieData = MovieEntity()
+        movieData.id = 62286
+        movieData.title = "Fear the Walking Dead"
+        movieData.overview = "What did the world look like as it was transforming into the horrifying apocalypse depicted in \"The Walking Dead\"? This spin-off set in Los Angeles, following new characters as they face the beginning of the end of the world, will answer that question."
+        movieData.poster_path = "/lZMb3R3e5vqukPbeDMeyYGf2ZNG.jpg"
+        movieData.backdrop_path = "/nUXzdD2Jo3wV9Q7mIZjK46Yyty4.jpg"
+        movieData.vote_count = 1011
+        movieData.vote_average = 6.3
+        movieData.popularity = 196.205
+        movieData.release_date = "2015-08-23"
+        entityList.add(movieData)
+
+        // Data 4
+        movieData = MovieEntity()
+        movieData.id = 66788
+        movieData.title = "13 Reasons Why"
+        movieData.overview = "After a teenage girl's perplexing suicide, a classmate receives a series of tapes that unravel the mystery of her tragic choice."
+        movieData.poster_path = "/nel144y4dIOdFFid6twN5mAX9Yd.jpg"
+        movieData.backdrop_path = "/sZb21d6EWKAEKZ9GrLQeMwX4cWN.jpg"
+        movieData.vote_count = 859
+        movieData.vote_average = 7.1
+        movieData.popularity = 164.939
+        movieData.release_date = "2017-03-31"
+        entityList.add(movieData)
+
+        // Data 5
+        movieData = MovieEntity()
+        movieData.id = 466272
+        movieData.title = "Once Upon a Time in Hollywood"
+        movieData.overview = "A faded television actor and his stunt double strive to achieve fame and success in the film industry during the final years of Hollywood's Golden Age in 1969 Los Angeles."
+        movieData.poster_path = "/8j58iEBw9pOXFD2L0nt0ZXeHviB.jpg"
+        movieData.backdrop_path = "/b82nVVhYNRgtsTFV1jkdDwe6LJZ.jpg"
+        movieData.vote_count = 273
+        movieData.vote_average = 7.5
+        movieData.popularity = 158.833
+        movieData.release_date = "2019-07-25"
+        entityList.add(movieData)
+
+        // Data 6
+        movieData = MovieEntity()
+        movieData.id = 1416
+        movieData.title = "Grey's Anatomy"
+        movieData.overview = "Follows the personal and professional lives of a group of doctors at Seattle’s Grey Sloan Memorial Hospital."
+        movieData.poster_path = "/eqgIOObafPJitt8JNh1LuO2fvqu.jpg"
+        movieData.backdrop_path = "/hF9yq8MxaTNLJITo0lwgO7eUoTx.jpg"
+        movieData.vote_count = 998
+        movieData.vote_average = 6.3
+        movieData.popularity = 157.564
+        movieData.release_date = "2005-03-27"
+        entityList.add(movieData)
+
+        // Data 7
+        movieData = MovieEntity()
+        movieData.id = 531309
+        movieData.title = "Brightburn"
+        movieData.overview = "What if a child from another world crash-landed on Earth, but instead of becoming a hero to mankind, he proved to be something far more sinister?"
+        movieData.poster_path = "/sJWwkYc9ajwnPRSkqj8Aue5JbKz.jpg"
+        movieData.backdrop_path = "/uHEI6v8ApQusjbaRZ8o7WcLYeWb.jpg"
+        movieData.vote_count = 540
+        movieData.vote_average = 5.7
+        movieData.popularity = 125.613
+        movieData.release_date = "2019-05-09"
+        entityList.add(movieData)
+
+        // Data 8
+        movieData = MovieEntity()
+        movieData.id = 60708
+        movieData.title = "Gotham"
+        movieData.overview = "Before there was Batman, there was GOTHAM. \n\nEveryone knows the name Commissioner Gordon. He is one of the crime world's greatest foes, a man whose reputation is synonymous with law and order. But what is known of Gordon's story and his rise from rookie detective to Police Commissioner? What did it take to navigate the multiple layers of corruption that secretly ruled Gotham City, the spawning ground of the world's most iconic villains? And what circumstances created them – the larger-than-life personas who would become Catwoman, The Penguin, The Riddler, Two-Face and The Joker? "
+        movieData.poster_path = "/4XddcRDtnNjYmLRMYpbrhFxsbuq.jpg"
+        movieData.backdrop_path = "/mKBP1OCgCG0jw8DwVYlnYqVILtc.jpg"
+        movieData.vote_count = 1152
+        movieData.vote_average = 6.9
+        movieData.popularity = 149.29
+        movieData.release_date = "2014-09-22"
+        entityList.add(movieData)
+
+        // Data 9
+        movieData = MovieEntity()
+        movieData.id = 1412
+        movieData.title = "Arrow"
+        movieData.overview = "Spoiled billionaire playboy Oliver Queen is missing and presumed dead when his yacht is lost at sea. He returns five years later a changed man, determined to clean up the city as a hooded vigilante armed with a bow."
+        movieData.poster_path = "/mo0FP1GxOFZT4UDde7RFDz5APXF.jpg"
+        movieData.backdrop_path = "/dKxkwAJfGuznW8Hu0mhaDJtna0n.jpg"
+        movieData.vote_count = 2608
+        movieData.vote_average = 5.8
+        movieData.popularity = 254.63
+        movieData.release_date = "2012-10-10"
+        entityList.add(movieData)
+
+        // Data 10
+        movieData = MovieEntity()
+        movieData.id = 449562
+        movieData.title = "Legion"
+        movieData.overview = "David Haller, AKA Legion, is a troubled young man who may be more than human. Diagnosed as schizophrenic, David has been in and out of psychiatric hospitals for years. But after a strange encounter with a fellow patient, he’s confronted with the possibility that the voices he hears and the visions he sees might be real."
+        movieData.poster_path = "/vT0Zsbm4GWd7llNjgWEtwY0CqOv.jpg"
+        movieData.backdrop_path = "/87eP7ITTrOWvkA4EqCuoRdyjzLy.jpg"
+        movieData.vote_count = 605
+        movieData.vote_average = 7.6
+        movieData.popularity = 115.45
+        movieData.release_date = "2017-02-08"
+        entityList.add(movieData)
+    }
