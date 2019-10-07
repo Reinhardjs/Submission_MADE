@@ -1,5 +1,7 @@
 package com.example.submission_made.data
 
+import android.content.Context
+import android.database.Cursor
 import com.example.submission_made.data.entity.FavoriteEntity
 import com.example.submission_made.data.entity.MovieEntity
 import com.example.submission_made.data.entity.TvEntity
@@ -10,9 +12,13 @@ interface LocalDataSource : DataSource {
 
     fun getAllFavorite(tableName: String): Observable<List<FavoriteEntity>>
 
+    fun getAllProviderFavorite(tableName: String): Cursor
+
     fun getFavorite(id: Int): Single<FavoriteEntity>
 
-    fun insertFavorite(favorite: FavoriteEntity)
+    fun getProviderFavorite(id: Int): Cursor
+
+    fun insertFavorite(context: Context, favorite: FavoriteEntity)
 
     fun insertMovies(movies: List<MovieEntity>)
 
@@ -22,6 +28,6 @@ interface LocalDataSource : DataSource {
 
     fun deleteAllTvShows()
 
-    fun deleteFavorite(id: Int)
+    fun deleteFavorite(context: Context, id: Int)
 
 }

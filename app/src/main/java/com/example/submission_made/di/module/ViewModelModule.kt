@@ -2,10 +2,7 @@ package com.example.submission_made.di.module
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.example.submission_made.viewmodel.MovieDetailViewModel
-import com.example.submission_made.viewmodel.MovieFavoriteViewModel
-import com.example.submission_made.viewmodel.MovieListViewModel
-import com.example.submission_made.viewmodel.ViewModelFactory
+import com.example.submission_made.viewmodel.*
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap
@@ -27,6 +24,11 @@ abstract class ViewModelModule {
     @IntoMap
     @ViewModelKey(MovieFavoriteViewModel::class)
     internal abstract fun bindMovieFavoriteViewModel(movieFavoriteViewModel: MovieFavoriteViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(SettingViewModel::class)
+    internal abstract fun bindSettingViewModel(settingViewModel: SettingViewModel): ViewModel
 
     @Binds
     internal abstract fun bindViewModelFactory(viewModelFactory: ViewModelFactory): ViewModelProvider.Factory

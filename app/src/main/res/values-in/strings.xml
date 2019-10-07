@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Submission_MADE</string>
+    <string name="app_name">MADE MOVIE APP</string>
 
     <string name="toolbar_title">Daftar Film</string>
+    <string name="reminder_toolbar_title">Pengaturan Pengingat</string>
     <string name="favorite_toolbar_title">Daftar Favorit</string>
 
     <string name="trailer_3">Cuplikan 3</string>
@@ -32,4 +33,8 @@
     <string name="heart_full_path">M28,39 L26.405,37.5667575 C20.74,32.4713896 17,29.1089918 17,24.9945504 C17,21.6321526 19.6565,19 23.05,19 C24.964,19 26.801,19.8828338 28,21.2724796 C29.199,19.8828338 31.036,19 32.95,19 C36.3435,19 39,21.6321526 39,24.9945504 C39,29.1089918 35.26,32.4713896 29.595,37.5667575 L28,39 L28,39 Z</string>
     <string name="heart_clip_hidden">M18 37 L38 37 L38 37 L18 37 Z</string>
     <string name="heart_clip_shown">M0 0 L56 0 L56 56 L0 56 Z</string>
+
+    <string name="content_text">Udah cek film kamu hari ini belum?</string>
+    <string name="new_released_text">  telah dirilis hari ini</string>
+    <string name="reminder_settings">Pengaturan Pengingat</string>
 </resources>

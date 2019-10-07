@@ -9,12 +9,12 @@ import com.example.submission_made.data.remote.MovieApiData
 import com.example.submission_made.data.remote.MovieService
 import com.example.submission_made.di.components.DaggerAppComponent
 import com.example.submission_made.ui.activity.MainActivity
+import com.example.submission_made.utils.AlarmReceiver
 import com.example.submission_made.viewmodel.MovieListViewModel
 import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector
 import dagger.android.HasActivityInjector
 import javax.inject.Inject
-
 
 /**
  *
@@ -23,7 +23,6 @@ import javax.inject.Inject
  * [MovieListViewModel] [MovieApiData] dan [MovieService]
  *
  */
-
 
 class MovieApp : Application(), HasActivityInjector, LifecycleOwner {
     override fun getLifecycle(): Lifecycle {
@@ -37,6 +36,7 @@ class MovieApp : Application(), HasActivityInjector, LifecycleOwner {
         super.onCreate()
         initializeComponent()
         setInstance(this)
+        appContext = applicationContext
     }
 
     fun initializeComponent() {
@@ -52,7 +52,7 @@ class MovieApp : Application(), HasActivityInjector, LifecycleOwner {
 
     companion object {
 
-        var appContext: MovieApp? = null
+        var appContext: Context? = null
             set
 
         @Synchronized
@@ -60,8 +60,8 @@ class MovieApp : Application(), HasActivityInjector, LifecycleOwner {
             appContext = app
         }
 
-        fun getContext(): Context{
-            return appContext?.applicationContext!!
+        fun getContext(): Context? {
+            return this.appContext
         }
     }
 }

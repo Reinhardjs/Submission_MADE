@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Submission_MADE</string>
+    <string name="app_name">MADE MOVIE APP</string>
 
     <string name="toolbar_title">Movie List App</string>
+    <string name="reminder_toolbar_title">Reminder Settings</string>
     <string name="favorite_toolbar_title">Favorite List</string>
 
     <string name="trailer_3">Trailer 3</string>
@@ -31,4 +32,9 @@
     <string name="heart_full_path">M28,39 L26.405,37.5667575 C20.74,32.4713896 17,29.1089918 17,24.9945504 C17,21.6321526 19.6565,19 23.05,19 C24.964,19 26.801,19.8828338 28,21.2724796 C29.199,19.8828338 31.036,19 32.95,19 C36.3435,19 39,21.6321526 39,24.9945504 C39,29.1089918 35.26,32.4713896 29.595,37.5667575 L28,39 L28,39 Z</string>
     <string name="heart_clip_hidden">M18 37 L38 37 L38 37 L18 37 Z</string>
     <string name="heart_clip_shown">M0 0 L56 0 L56 56 L0 56 Z</string>
+    <string name="appwidget_text" translatable="false">EXAMPLE</string>
+    <string name="add_widget" translatable="false">Add widget</string>
+    <string name="content_text">Have you check your movie today?</string>
+    <string name="new_released_text"> has been released today</string>
+    <string name="reminder_settings">Reminder Settings</string>
 </resources>    

@@ -4,21 +4,30 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.graphics.drawable.Animatable
+import android.net.Uri
 import android.os.Bundle
 import android.os.Handler
 import android.provider.Settings
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Toast
 import androidx.appcompat.widget.Toolbar
 import com.example.submission_made.R
+import com.example.submission_made.data.entity.FavoriteEntity
+import com.example.submission_made.data.provider.Contract
 import com.example.submission_made.databinding.ActivityMainBinding
 import com.example.submission_made.ui.adapter.MyPagerAdapter
 import com.example.submission_made.ui.base.BaseActivity
 import com.example.submission_made.ui.fragment.MovieListFragment
 import com.example.submission_made.ui.fragment.TvShowListFragment
+import com.example.submission_made.utils.Utility
 import com.example.submission_made.viewmodel.MovieListViewModel
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.tabs.TabLayout
+import io.reactivex.Single
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.schedulers.Schedulers
 import javax.inject.Inject
 
 class MainActivity : BaseActivity<MovieListViewModel, ActivityMainBinding>() {
@@ -77,6 +86,36 @@ class MainActivity : BaseActivity<MovieListViewModel, ActivityMainBinding>() {
 
             }, 500)
         }
+
+
+        val work = Single.create<List<FavoriteEntity>> {
+
+            val selectionArgs: Array<String> = arrayOf("-123", "movies")
+            val projection = arrayOf(Contract.AUTHORITY)
+
+            val cursor = contentResolver.query(
+                Uri.parse(Contract.CONTENT_URI.toString()), projection, null,
+                selectionArgs, null
+            )
+
+            if (cursor != null) {
+
+                val movieList = Utility.favoriteCursorToListConverter(cursor)
+                cursor.close()
+
+                for (item in movieList){
+                    Log.d("MYAPP", "MOVIE TITLE : " + item.title)
+                }
+
+                it.onSuccess(movieList)
+
+            } else {
+
+                it.onError(Throwable("Cursor Null"))
+
+            }
+        }
+
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -84,6 +123,11 @@ class MainActivity : BaseActivity<MovieListViewModel, ActivityMainBinding>() {
             R.id.action_change_settings -> {
                 val mIntent = Intent(Settings.ACTION_LOCALE_SETTINGS)
                 startActivity(mIntent)
+            }
+
+            R.id.action_reminder_settings -> {
+                val intent = Intent(applicationContext, SettingActivity::class.java)
+                startActivity(intent)
             }
         }
 

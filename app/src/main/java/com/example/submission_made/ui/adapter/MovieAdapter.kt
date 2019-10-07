@@ -14,7 +14,8 @@ import com.example.submission_made.ui.base.BaseAdapter
 import com.example.submission_made.ui.callbacks.ListCallback
 import com.squareup.picasso.Picasso
 
-class MovieAdapter(var listCallback: ListCallback<MovieEntity>) : BaseAdapter<MovieAdapter.ViewHolder, MovieEntity>() {
+class MovieAdapter(var listCallback: ListCallback<MovieEntity>) :
+    BaseAdapter<MovieAdapter.ViewHolder, MovieEntity>() {
 
     private var dataList = ArrayList<MovieEntity>()
 

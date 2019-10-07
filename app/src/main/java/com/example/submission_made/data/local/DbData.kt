@@ -10,7 +10,7 @@ import kotlin.reflect.KClass
 
 object DbData {
 
-    val db: AppDatabase by lazy { AppDatabase.getInstance(MovieApp.getContext()) }
+    val db: AppDatabase by lazy { AppDatabase.getInstance(MovieApp.getContext()!!) }
 
     fun of(clazz: KClass<*>): LocalDataSource {
         return when (clazz) {

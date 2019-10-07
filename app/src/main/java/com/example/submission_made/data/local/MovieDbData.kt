@@ -1,5 +1,7 @@
 package com.example.submission_made.data.local
 
+import android.content.Context
+import android.database.Cursor
 import com.example.submission_made.data.LocalDataSource
 import com.example.submission_made.data.entity.FavoriteEntity
 import com.example.submission_made.data.entity.MovieEntity
@@ -12,6 +14,14 @@ class MovieDbData(val dao: MovieDao) : LocalDataSource {
     // Favorite CRUD
     // ################################################################################
 
+    override fun getAllProviderFavorite(tableName: String): Cursor {
+        return dao.getProviderFavorites(tableName)
+    }
+
+    override fun getProviderFavorite(id: Int): Cursor {
+        return dao.getProviderFavorite(id)
+    }
+
     override fun getFavorite(id: Int): Single<FavoriteEntity> {
         return dao.getFavorite(id)
     }
@@ -20,11 +30,11 @@ class MovieDbData(val dao: MovieDao) : LocalDataSource {
         return dao.getFavorites(tableName)
     }
 
-    override fun insertFavorite(favorite: FavoriteEntity) {
+    override fun insertFavorite(context: Context, favorite: FavoriteEntity) {
         dao.insertFavorite(favorite)
     }
 
-    override fun deleteFavorite(id: Int) {
+    override fun deleteFavorite(context: Context, id: Int) {
         dao.deleteFavorite(id)
     }
 

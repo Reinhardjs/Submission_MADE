@@ -185,7 +185,7 @@ class MovieDetailsActivity : BaseActivity<MovieDetailViewModel, ActivityMovieDet
             if (isChecked) {
 
                 val disposable: Disposable = Completable.fromAction {
-                    viewModel.insertFavorite(EntityConverter.convertToFavoriteEntity(movieData))
+                    viewModel.insertFavorite(applicationContext, EntityConverter.convertToFavoriteEntity(movieData))
                 }
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribeOn(Schedulers.single())

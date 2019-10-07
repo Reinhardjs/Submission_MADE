@@ -1,5 +1,6 @@
 package com.example.submission_made.data.local
 
+import android.database.Cursor
 import androidx.room.*
 import androidx.sqlite.db.SupportSQLiteQuery
 import com.example.submission_made.data.entity.FavoriteEntity
@@ -23,6 +24,12 @@ abstract class MovieDao {
 
     @Query("SELECT * FROM favorites WHERE tableName=:tableName")
     abstract fun getFavorites(tableName: String): Observable<List<FavoriteEntity>>
+
+    @Query("SELECT * FROM favorites WHERE id=:id")
+    abstract fun getProviderFavorite(id: Int): Cursor
+
+    @Query("SELECT * FROM favorites WHERE tableName=:tableName")
+    abstract fun getProviderFavorites(tableName: String): Cursor
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     abstract fun insertFavorite(favorite: FavoriteEntity)

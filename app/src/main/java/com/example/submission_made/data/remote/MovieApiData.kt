@@ -48,6 +48,20 @@ class MovieApiData : RemoteDataSource {
             }
     }
 
+    override fun getTodayReleases(gte: String, lte: String): Observable<List<MovieEntity>> {
+        return movieService.getTodayReleases(gte, lte)
+            .flatMap { response ->
+                Observable.fromIterable(
+                    listOf(
+                        setTableName(
+                            "movies",
+                            response.results
+                        )
+                    )
+                )
+            }
+    }
+
     fun <T : BaseEntity> setTableName(tableName: String, results: List<T>): List<T> {
         for (item in results) {
             item.tableName = tableName
@@ -102,7 +116,9 @@ class MovieApiData : RemoteDataSource {
 
                 },
                 Response.ErrorListener {
+
                     it.printStackTrace()
+
                 }
             )
 

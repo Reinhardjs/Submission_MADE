@@ -6,6 +6,7 @@ import com.example.submission_made.data.remote.response.MovieResponse
 import io.reactivex.Observable
 import retrofit2.http.GET
 import retrofit2.http.Path
+import retrofit2.http.Query
 
 interface MovieService {
 
@@ -13,11 +14,20 @@ interface MovieService {
 
     @GET("/3/movie/{category}")
     fun getMovies(
-        @Path("category") category: String): Observable<MovieResponse<MovieEntity>>
+        @Path("category") category: String
+    ): Observable<MovieResponse<MovieEntity>>
 
 
     @GET("/3/tv/{category}")
     fun getTvShows(
-        @Path("category") category: String): Observable<MovieResponse<TvEntity>>
+        @Path("category") category: String
+    ): Observable<MovieResponse<TvEntity>>
+
+
+    @GET("/3/discover/movie")
+    fun getTodayReleases(
+        @Query("primary_release_date.gte") gte: String,
+        @Query("primary_release_date.lte") lte: String
+    ): Observable<MovieResponse<MovieEntity>>
 
 }
