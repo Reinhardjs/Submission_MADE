@@ -77,11 +77,11 @@ class MovieListFragment(var page: Int, var title: String) :
                     dataBinding.resource = resource
                     this.resource = resource
 
-                    Toast.makeText(
-                        context,
-                        getString(R.string.data_load_success),
-                        Toast.LENGTH_SHORT
-                    ).show()
+//                    Toast.makeText(
+//                        context,
+//                        getString(R.string.data_load_success),
+//                        Toast.LENGTH_SHORT
+//                    ).show()
                 },
                 {
                     it.printStackTrace()
@@ -166,11 +166,11 @@ class MovieListFragment(var page: Int, var title: String) :
                             dataBinding.resource = resource
                             this.resource = resource
 
-                            Toast.makeText(
-                                mContext,
-                                getString(R.string.data_load_success),
-                                Toast.LENGTH_SHORT
-                            ).show()
+//                            Toast.makeText(
+//                                mContext,
+//                                getString(R.string.data_load_success),
+//                                Toast.LENGTH_SHORT
+//                            ).show()
 
                         },
                         { it.printStackTrace() }
