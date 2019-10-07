@@ -25,6 +25,7 @@
                 android:layout_margin="15dp"
                 android:background="@drawable/bg_searchview"
                 android:queryBackground="@android:color/transparent"
+                android:visibility="gone"
                 app:theme="@style/SearchViewStyle"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"

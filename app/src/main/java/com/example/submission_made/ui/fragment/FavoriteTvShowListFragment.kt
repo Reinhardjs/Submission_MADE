@@ -20,7 +20,7 @@ import com.example.submission_made.data.entity.BaseEntity
 import com.example.submission_made.data.entity.FavoriteEntity
 import com.example.submission_made.data.remote.Resource
 import com.example.submission_made.data.remote.Status
-import com.example.submission_made.databinding.FragmentListBinding
+import com.example.submission_made.databinding.FavoriteFragmentListBinding
 import com.example.submission_made.ui.activity.MovieDetailsActivity
 import com.example.submission_made.ui.adapter.FavoriteAdapter
 import com.example.submission_made.ui.base.BaseFragment
@@ -33,7 +33,7 @@ import io.reactivex.schedulers.Schedulers
 import javax.inject.Inject
 
 class FavoriteTvShowListFragment(var page: Int, var title: String) :
-    BaseFragment<MovieListViewModel, FragmentListBinding>(),
+    BaseFragment<MovieListViewModel, FavoriteFragmentListBinding>(),
     ListCallback<FavoriteEntity> {
 
     @Inject
@@ -48,7 +48,7 @@ class FavoriteTvShowListFragment(var page: Int, var title: String) :
     constructor() : this(1, "")
 
     public override val layoutRes: Int
-        get() = R.layout.fragment_list
+        get() = R.layout.favorite_fragment_list
 
     public override fun getViewModel(): Class<MovieListViewModel> {
         return MovieListViewModel::class.java

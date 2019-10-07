@@ -19,6 +19,14 @@ constructor(val movieRepo: Repo, val context: Context) : ViewModel() {
         return movieRepo.db.getAllFavorite(tableName)
     }
 
+    fun searchMovies(language: String, query: String): Observable<List<MovieEntity>> {
+        return movieRepo.api.searchMovies(language, query)
+    }
+
+    fun searchTvShows(language: String, query: String): Observable<List<TvEntity>> {
+        return movieRepo.api.searchTvShows(language, query)
+    }
+
     fun getMovies(): Observable<List<MovieEntity>> {
         // handle ambil data offline & online nya di sini
 

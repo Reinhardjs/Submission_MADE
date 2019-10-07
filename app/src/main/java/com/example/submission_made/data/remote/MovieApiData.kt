@@ -48,6 +48,34 @@ class MovieApiData : RemoteDataSource {
             }
     }
 
+    override fun searchMovies(language: String, query: String): Observable<List<MovieEntity>> {
+        return movieService.searchMovies(language, query)
+            .flatMap { response ->
+                Observable.fromIterable(
+                    listOf(
+                        setTableName(
+                            "movies",
+                            response.results
+                        )
+                    )
+                )
+            }
+    }
+
+    override fun searchTvShows(language: String, query: String): Observable<List<TvEntity>> {
+        return movieService.searchTvShows(language, query)
+            .flatMap { response ->
+                Observable.fromIterable(
+                    listOf(
+                        setTableName(
+                            "tvshows",
+                            response.results
+                        )
+                    )
+                )
+            }
+    }
+
     override fun getTodayReleases(gte: String, lte: String): Observable<List<MovieEntity>> {
         return movieService.getTodayReleases(gte, lte)
             .flatMap { response ->

@@ -2,7 +2,6 @@ package com.example.submission_made.viewmodel
 
 import android.content.ContentValues
 import android.content.Context
-import android.content.Intent
 import android.net.Uri
 import android.util.Log
 import androidx.lifecycle.ViewModel

@@ -17,12 +17,22 @@ interface MovieService {
         @Path("category") category: String
     ): Observable<MovieResponse<MovieEntity>>
 
-
     @GET("/3/tv/{category}")
     fun getTvShows(
         @Path("category") category: String
     ): Observable<MovieResponse<TvEntity>>
 
+    @GET("/3/search/movie")
+    fun searchMovies(
+        @Query("language") language: String,
+        @Query("query") query: String
+    ): Observable<MovieResponse<MovieEntity>>
+
+    @GET("/3/search/tv")
+    fun searchTvShows(
+        @Query("language") language: String,
+        @Query("query") query: String
+    ): Observable<MovieResponse<TvEntity>>
 
     @GET("/3/discover/movie")
     fun getTodayReleases(

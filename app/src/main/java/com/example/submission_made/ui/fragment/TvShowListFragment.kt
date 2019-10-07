@@ -12,6 +12,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.annotation.Nullable
+import androidx.appcompat.widget.SearchView
 import androidx.core.app.ActivityOptionsCompat
 import androidx.core.view.ViewCompat
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -34,7 +35,8 @@ import javax.inject.Inject
 
 class TvShowListFragment(var page: Int, var title: String) :
     BaseFragment<MovieListViewModel, FragmentListBinding>(),
-    ListCallback<TvEntity> {
+    ListCallback<TvEntity>,
+    SearchView.OnQueryTextListener {
 
     @Inject
     lateinit var mContext: Context
@@ -52,6 +54,48 @@ class TvShowListFragment(var page: Int, var title: String) :
 
     public override fun getViewModel(): Class<MovieListViewModel> {
         return MovieListViewModel::class.java
+    }
+
+    override fun onQueryTextSubmit(query: String): Boolean {
+
+        this.resource = Resource(null, ArrayList(), null)
+        dataBinding.resource = this.resource
+        dataBinding.loginProgress.visibility = View.VISIBLE
+
+
+        val disposable: Disposable = viewModel.searchTvShows("en-US", query)
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribeOn(Schedulers.io())
+            .subscribe(
+                {
+
+                    if (it != null) {
+                        dataBinding.loginProgress.visibility = View.GONE
+                    }
+
+                    val resource = Resource(null, it, null)
+                    resource.status = Status.LOADING
+
+                    dataBinding.resource = resource
+                    this.resource = resource
+
+                    Toast.makeText(
+                        context,
+                        getString(R.string.data_load_success),
+                        Toast.LENGTH_SHORT
+                    ).show()
+                },
+                {
+                    it.printStackTrace()
+                    Log.d("MYAPP", "Exception for get favorite items : " + it.message)
+                }
+            )
+
+        return true
+    }
+
+    override fun onQueryTextChange(newText: String): Boolean {
+        return true;
     }
 
     override fun onItemClicked(imageView: ImageView, movieEntity: TvEntity) {
@@ -93,6 +137,7 @@ class TvShowListFragment(var page: Int, var title: String) :
         adapter = TvShowAdapter(this)
         dataBinding.recyclerView.layoutManager = LinearLayoutManager(activity)
         dataBinding.recyclerView.adapter = adapter
+        dataBinding.searchView.setOnQueryTextListener(this)
 
         return dataBinding.root
     }

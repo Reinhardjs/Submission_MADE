@@ -1,57 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:weightSum="10"
-        android:padding="15dp">
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        app:cardCornerRadius="5dp">
 
-    <ImageView
-            android:id="@+id/movieImage"
-            android:layout_width="60dp"
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/container"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/textContainer"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintHorizontal_weight="8"
-            android:adjustViewBounds="true"/>
+            android:orientation="horizontal"
+            android:background="@android:color/white"
+            android:weightSum="10"
+            android:padding="15dp">
 
-    <LinearLayout
-            android:id="@+id/textContainer"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            app:layout_constraintStart_toEndOf="@id/movieImage"
-            app:layout_constraintTop_toTopOf="parent"
-            android:padding="5dp"
-            android:orientation="vertical">
-
-        <TextView
-                android:id="@+id/title"
-                android:layout_width="wrap_content"
+        <ImageView
+                android:id="@+id/movieImage"
+                android:layout_width="60dp"
                 android:layout_height="wrap_content"
-                android:textColor="#000000"
-                android:textStyle="bold"
-                android:text="Title"/>
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/textContainer"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintHorizontal_weight="8"
+                android:adjustViewBounds="true"/>
 
-        <TextView
-                android:id="@+id/overview"
-                android:layout_width="wrap_content"
+        <LinearLayout
+                android:id="@+id/textContainer"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:textColor="#000000"
-                android:ellipsize="end"
-                android:maxLines="2"
-                android:text="Overview"/>
+                app:layout_constraintStart_toEndOf="@id/movieImage"
+                app:layout_constraintTop_toTopOf="parent"
+                android:padding="5dp"
+                android:orientation="vertical">
 
-        <TextView
-                android:id="@+id/releaseDate"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="#000000"
-                android:text="Release Date"/>
+            <TextView
+                    android:id="@+id/title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#000000"
+                    android:textStyle="bold"
+                    android:text="Title"/>
 
-    </LinearLayout>
+            <TextView
+                    android:id="@+id/overview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#000000"
+                    android:ellipsize="end"
+                    android:maxLines="2"
+                    android:text="Overview"/>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <TextView
+                    android:id="@+id/releaseDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#000000"
+                    android:text="Release Date"/>
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>

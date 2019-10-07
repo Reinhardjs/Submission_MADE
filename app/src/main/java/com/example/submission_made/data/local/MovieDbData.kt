@@ -15,7 +15,11 @@ class MovieDbData(val dao: MovieDao) : LocalDataSource {
     // ################################################################################
 
     override fun getAllProviderFavorite(tableName: String): Cursor {
-        return dao.getProviderFavorites(tableName)
+        if (tableName.equals("movies&tvshows", ignoreCase = true)){
+            return dao.getProviderFavorites()
+        } else {
+            return dao.getProviderFavorites(tableName)
+        }
     }
 
     override fun getProviderFavorite(id: Int): Cursor {

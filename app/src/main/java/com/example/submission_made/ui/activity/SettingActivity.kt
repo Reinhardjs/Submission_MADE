@@ -15,7 +15,6 @@ class SettingActivity : BaseActivity<SettingViewModel, ActivitySettingBinding>()
     lateinit var toolbarTop: Toolbar
     lateinit var toggleRelease: ToggleButton
     lateinit var toggleDaily: ToggleButton
-
     lateinit var alarmReceiver: AlarmReceiver
 
     override val layoutRes: Int = R.layout.activity_setting
@@ -35,19 +34,17 @@ class SettingActivity : BaseActivity<SettingViewModel, ActivitySettingBinding>()
         toggleDaily = dataBinding.toggleDaily
 
         alarmReceiver = AlarmReceiver()
-        alarmReceiver.setRepeatingAlarmRelease(applicationContext, true)
 
         if (viewModel.getReleaseReminderCheck()){
-            toggleRelease.toggle()
+            toggleRelease.isChecked = true
         }
 
         if (viewModel.getDailyReminderCheck()){
-            toggleDaily.toggle()
+            toggleDaily.isChecked = true
         }
 
         toggleRelease.setOnCheckedChangeListener(this)
         toggleDaily.setOnCheckedChangeListener(this)
-
     }
 
     override fun onCheckedChanged(buttonView: CompoundButton?, isChecked: Boolean) {

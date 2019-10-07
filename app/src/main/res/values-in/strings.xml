@@ -5,6 +5,7 @@
     <string name="toolbar_title">Daftar Film</string>
     <string name="reminder_toolbar_title">Pengaturan Pengingat</string>
     <string name="favorite_toolbar_title">Daftar Favorit</string>
+    <string name="search_text_hint">Klik icon search untuk memulai</string>
 
     <string name="trailer_3">Cuplikan 3</string>
     <string name="trailer_2">Cuplikan 2</string>
@@ -19,7 +20,6 @@
     <string name="movies">Film</string>
     <string name="tv_shows">Serial TV</string>
     <string name="data_load_success">Data berhasil diload!</string>
-
 
     <string name="favorite_inserted">Berhasil ditambahkan ke favorit</string>
     <string name="favorite_deleted">Berhasil dihapus dari favorit</string>
@@ -37,4 +37,9 @@
     <string name="content_text">Udah cek film kamu hari ini belum?</string>
     <string name="new_released_text">  telah dirilis hari ini</string>
     <string name="reminder_settings">Pengaturan Pengingat</string>
+
+    <string name="release_reminder_description">Pengingat yang menampilkan film yang telah rilis setiap hari</string>
+    <string name="daily_reminder_description">Pengingat untuk kembali membuka aplikasi</string>
+    <string name="release_reminder_title">Pengingat Rilis</string>
+    <string name="daily_reminder_title">Pengingat Harian</string>
 </resources>

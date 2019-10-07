@@ -10,9 +10,21 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
-
         <item name="android:windowContentTransitions" tools:ignore="NewApi">true</item>
-
+        <item name="searchViewStyle">@style/SearchViewStyle</item>
     </style>
+
+
+    <style name="SearchViewStyle" parent="Widget.AppCompat.SearchView">
+        <item name="searchIcon">@drawable/ic_search_black_24dp</item>
+        <item name="closeIcon">@drawable/ic_close_black_24dp</item>
+        <item name="android:tint">@android:color/black</item>
+        <item name="android:color">@android:color/black</item>
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:editTextColor">@android:color/black</item>
+        <item name="android:textColorHint">@android:color/black</item>
+        <item name="android:queryHint">@string/search_text_hint</item>
+    </style>
+
 
 </resources>

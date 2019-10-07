@@ -28,6 +28,9 @@ abstract class MovieDao {
     @Query("SELECT * FROM favorites WHERE id=:id")
     abstract fun getProviderFavorite(id: Int): Cursor
 
+    @Query("SELECT * FROM favorites")
+    abstract fun getProviderFavorites(): Cursor
+
     @Query("SELECT * FROM favorites WHERE tableName=:tableName")
     abstract fun getProviderFavorites(tableName: String): Cursor
 
