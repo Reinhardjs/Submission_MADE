@@ -5,9 +5,9 @@
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.WAKE_LOCK"/>
-    <uses-permission android:name="android.permission.VIBRATE"/>
-    <uses-permission android:name="android.permission.SET_ALARM"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.SET_ALARM" />
 
     <application
             android:name=".MovieApp"
@@ -18,9 +18,14 @@
             android:supportsRtl="true"
             android:theme="@style/AppTheme"
             tools:ignore="GoogleAppIndexingWarning">
+
         <activity android:name=".ui.activity.SettingActivity" />
 
-        <receiver android:name=".utils.AlarmReceiver" android:exported="true" android:permission="" android:enabled="true"/>
+        <receiver
+                android:name=".utils.AlarmReceiver"
+                android:enabled="true"
+                android:exported="true"
+                android:permission="" />
 
         <activity android:name=".ui.activity.MovieFavoritesActivity" />
         <activity android:name=".ui.activity.MovieDetailsActivity" />
@@ -32,12 +37,26 @@
             </intent-filter>
         </activity>
 
+        <receiver android:name=".ui.widget.FavoriteWidget">
+            <meta-data
+                    android:name="android.appwidget.provider"
+                    android:resource="@xml/favorite_widget_info" />
+
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+                <action android:name="com.example.submission_made.UPDATE_ACTION" />
+            </intent-filter>
+        </receiver>
+
+        <service
+                android:name=".ui.widget.StackWidgetService"
+                android:permission="android.permission.BIND_REMOTEVIEWS" />
+
         <provider
                 android:name=".data.provider.MovieProvider"
                 android:authorities="com.example.submission_made.provider"
                 android:enabled="true"
                 android:exported="true" />
-
     </application>
 
 </manifest>

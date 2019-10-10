@@ -42,4 +42,7 @@
     <string name="daily_reminder_description">Reminder for return to app</string>
     <string name="release_reminder_title">Release Reminder</string>
     <string name="daily_reminder_title">Daily Reminder</string>
-</resources>    
+
+    <string name="favorite_film">My Favorite Film</string>
+    <string name="no_favorite">No Favorite</string>
+</resources>

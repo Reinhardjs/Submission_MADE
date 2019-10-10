@@ -42,4 +42,7 @@
     <string name="daily_reminder_description">Pengingat untuk kembali membuka aplikasi</string>
     <string name="release_reminder_title">Pengingat Rilis</string>
     <string name="daily_reminder_title">Pengingat Harian</string>
+
+    <string name="favorite_film">Film Favorit Saya</string>
+    <string name="no_favorite">Tidak ada favorit</string>
 </resources>

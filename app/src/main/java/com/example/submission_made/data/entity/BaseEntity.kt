@@ -50,6 +50,6 @@ open class BaseEntity(
 
     fun getPosterImageUrl() = "https://image.tmdb.org/t/p/w342" + this.poster_path
 
-    fun getBackdropImageUrl() = "https://image.tmdb.org/t/p/w342" + this.backdrop_path
+    fun getBackdropImageUrl() = "https://image.tmdb.org/t/p/w1280" + this.backdrop_path
 
 }
